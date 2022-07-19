@@ -65,7 +65,7 @@ export const websiteListUSA = [
   { website: 'linkedin.com', icon: siLinkedin },
   { website: 'quora.com', icon: siQuora },
   { website: 'imdb.com', icon: siImdb },
-  { website: 'cnn.com', icon: siCnn },
+  { website: 'cnnindonesia.com', icon: siCnn },
   { website: 'tiktok.com', icon: siTiktok },
   { website: 'office.com', icon: siMicrosoftoffice },
   { website: 'microsoft.com', icon: siMicrosoft },
