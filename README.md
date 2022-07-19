@@ -1,2 +1,5 @@
-# personal-next-template
-🍪 | My personal starter for NextJS: TS, Tailwind, HeadlessUI, ESLint, Prettier, Git Hooks
+# Kominfo'd
+
+Website ini kena blokir kominfo ga ya...
+
+http://kominfo-d.vercel.app/
