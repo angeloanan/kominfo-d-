@@ -1,0 +1,9 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "plugins": ["simple-import-sort", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
+}

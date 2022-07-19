@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.stylized-bg {
+  background: radial-gradient(circle at bottom center, #ffb1e165, transparent 60%),
+    radial-gradient(circle at bottom left, #fff5f160, transparent 80%),
+    radial-gradient(circle at bottom right, #ffb09660, transparent 40%), rgb(245, 245, 245);
+}
