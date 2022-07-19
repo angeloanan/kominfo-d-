@@ -96,9 +96,8 @@ const IndexPage = () => {
                   loading={data == null}
                   pass={
                     // TODO: Properly type this
-                    data?.data.filter(
-                      (e: { attributes: { website: string } }) =>
-                        e.attributes.website === website.website
+                    data?.data.filter((e: { attributes: { website: string } }) =>
+                      e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
                   }
                 />
