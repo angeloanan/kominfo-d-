@@ -1,5 +1,4 @@
 import {
-  siAccusoft,
   siAdobe,
   siAmazon,
   siApple,
