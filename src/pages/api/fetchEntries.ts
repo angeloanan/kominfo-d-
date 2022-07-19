@@ -11,16 +11,13 @@ const handler: NextApiHandler = async (req, res) => {
   try {
     const race = await Promise.race([
       setTimeout(9000, null),
-      async () => {
-        const dataFetch = await fetch('https://pse.kominfo.go.id/api/v1/jsonapi/tdpse-terbit')
-        return await dataFetch.json()
-      }
+      fetch('https://pse.kominfo.go.id/api/v1/jsonapi/tdpse-terbit')
     ])
 
     if (race != null) {
       return res
         .setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=900')
-        .json(race)
+        .json(await race.json())
     } else {
       return res
         .setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=900')
