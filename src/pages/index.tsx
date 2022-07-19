@@ -76,6 +76,17 @@ const IndexPage = () => {
           </div> */}
 
           <div className='mt-16'>
+            <h2 className='text-2xl font-semibold'>Confused on what this is?</h2>
+            <p>The Indonesian government plans to ban &apos;online service providers&apos;.</p>
+            <p>
+              Read more about it here:{' '}
+              <Link href={'https://kominfu.com'} passHref>
+                <a className='text-blue-700 underline'>kominfu.com</a>
+              </Link>
+            </p>
+          </div>
+
+          <div className='mt-8'>
             <h2 className='text-2xl font-semibold'>Top websites USA</h2>
             <p>
               2022 Top websites in the USA. Sumber data website diambil dari{' '}
