@@ -4,23 +4,16 @@
  * @type {import('next-seo').NextSeoProps}
  */
 const defaultSEOConfig = {
-  title: "Angelo's NextJS Template",
-  titleTemplate: "%s | Angelo's NextJS Template",
+  title: "Kominfo'd - Website ini bakal keblokir ga ya?",
+  titleTemplate: "%s | Kominfo'd",
 
-  description:
-    "Angelo's Personal NextJS Template - Complete with battery, energy or whatever you call it 🙄",
+  description: 'Website ini bakal keblokir ga ya?',
 
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: process.env.SITE_URL ?? 'https://angeloanan.xyz',
-    site_name: "Angelo's NextJS Template"
-  },
-
-  twitter: {
-    handle: '@uwungelo',
-    site: '@uwungelo',
-    cardType: 'summary_large_image'
+    url: process.env.SITE_URL ?? 'https://kominfod.angelo.fyi',
+    site_name: "Kominfo'd"
   }
 }
 
