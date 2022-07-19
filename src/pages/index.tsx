@@ -1,10 +1,12 @@
 import Fuse from 'fuse.js'
+import Link from 'next/link.js'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import useSWR from 'swr'
 
 import { websiteListIDN, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
+import { useDebounce } from '../hooks/useDebounce'
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
@@ -16,6 +18,7 @@ const IndexPage = () => {
 
   const fuseInstance = React.useRef<any>(null)
   const [searchQuery, setSearchQuery] = React.useState('')
+  const debouncedQuery = useDebounce(searchQuery, 500)
 
   React.useEffect(() => {
     if (data == null) return
@@ -105,21 +108,34 @@ const IndexPage = () => {
             </div>
           </div>
 
-          <div className='mt-8'>
+          <div className='mt-8 mb-4'>
             <h2 className='text-2xl font-semibold'>Cari manual (in active development)</h2>
             Jika situs tidak tertampil diatas, anda bisa mencari situs tersebut di sini:{' '}
-            <input type='search' onChange={(e) => setSearchQuery(e.target.value)} />
+            <input
+              className='rounded border border-black p-2'
+              type='search'
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
 
           {data && fuseInstance.current != null && (
             <>
-              <pre className='overflow-scroll overflow-y-hidden'>
-                {JSON.stringify(
-                  (fuseInstance.current as Fuse<unknown>).search(searchQuery),
-                  null,
-                  2
-                )}
-              </pre>
+              {(fuseInstance.current as Fuse<unknown>)
+                .search(debouncedQuery, { limit: 5 })
+                .map((v) => {
+                  const item = v.item as { attributes: { nama: string; website: string } }
+
+                  return (
+                    <div key={v.refIndex} className='italic'>
+                      <Link href={`https://${item.attributes.website}`} passHref>
+                        <a className='text-blue-800 underline'>
+                          <span className='font-bold'>{item.attributes.nama}</span> -{' '}
+                          {item.attributes.website}
+                        </a>
+                      </Link>
+                    </div>
+                  )
+                })}
             </>
           )}
         </div>
