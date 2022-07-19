@@ -17,6 +17,9 @@ const nextConfig = {
     locales: ['en-US'],
     defaultLocale: 'en-US'
   },
+  api: {
+    responseLimit: false
+  },
 
   images: {
     domains: [],
