@@ -120,7 +120,7 @@ const IndexPage = () => {
           </div>
 
           <div className='mt-8 mb-4'>
-            <h2 className='text-2xl font-semibold'>Cari manual (in active development)</h2>
+            <h2 className='text-2xl font-semibold'>Cari manual</h2>
             Jika situs tidak tertampil diatas, anda bisa mencari situs tersebut di sini:{' '}
             <input
               className='rounded border border-black p-2'
