@@ -4,7 +4,7 @@
  * @type {import('next-seo').NextSeoProps}
  */
 const defaultSEOConfig = {
-  title: "Kominfo'd - Website ini bakal keblokir ga ya?",
+  defaultTitle: "Kominfo'd - Website ini bakal keblokir ga ya?",
   titleTemplate: "%s | Kominfo'd",
 
   description: 'Website ini bakal keblokir ga ya?',
