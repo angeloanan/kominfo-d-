@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import useSWR from 'swr'
 
-import { idnStarterPack, websiteListUSA } from '../_data/websites'
+import { devStarterPack, idnStarterPack, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { useDebounce } from '../hooks/useDebounce'
 
@@ -57,6 +57,27 @@ const IndexPage = () => {
             <p>Situs atau service ini terpopuler dengan orang Indonesia</p>
             <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
               {idnStarterPack.map((website) => (
+                <WebsiteEntry
+                  website={website.icon}
+                  key={website.icon.title}
+                  loading={data == null}
+                  pass={
+                    // TODO: Properly type this
+                    data?.data.filter((e: { attributes: { website: string } }) =>
+                      e.attributes.website.toLowerCase().startsWith(website.website)
+                    ).length > 0
+                  }
+                />
+              ))}
+            </div>
+          </section>
+
+          <section className='mt-8'>
+            <h2 className='text-2xl font-semibold'>Essential developer toolkit</h2>
+            <p>Service yang ✨ anak bangsa ✨ mungkin akan pakai saat membuat app</p>
+
+            <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+              {devStarterPack.map((website) => (
                 <WebsiteEntry
                   website={website.icon}
                   key={website.icon.title}
