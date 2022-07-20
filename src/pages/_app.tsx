@@ -3,6 +3,7 @@ import '../style/globals.css'
 
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+import Script from 'next/script'
 import { DefaultSeo } from 'next-seo'
 
 import SEOConfig from '../../next-seo.config'
@@ -23,6 +24,13 @@ function CustomApp({ Component, pageProps }: CustomAppProps) {
       <div className='stylized-bg min-h-screen'>
         <Component {...pageProps} />
       </div>
+
+      <Script
+        strategy='lazyOnload'
+        defer
+        src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "f24172e2386840c181d18d8e617a5861"}'
+      />
     </>
   )
 }
