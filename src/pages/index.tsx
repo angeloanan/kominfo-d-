@@ -8,10 +8,18 @@ import { devStarterPack, idnStarterPack, websiteListUSA } from '../_data/website
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { useDebounce } from '../hooks/useDebounce'
 
+type ApiReturnType = {
+  attributes: {
+    nama: string | null
+    nama_perusahaan: string | null
+    website: string | null
+  }
+}[]
+
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 const IndexPage = () => {
-  const { data, error } = useSWR('/api/fetchEntries', fetcher, {
+  const { data, error } = useSWR<ApiReturnType>('/api/fetchEntries', fetcher, {
     refreshInterval: 60_000,
     revalidateOnFocus: false
   })
@@ -23,7 +31,7 @@ const IndexPage = () => {
   React.useEffect(() => {
     if (data == null) return
 
-    fuseInstance.current = new Fuse(data.data, {
+    fuseInstance.current = new Fuse(data, {
       keys: ['attributes.website'],
       isCaseSensitive: true,
       threshold: 0.8
@@ -63,7 +71,7 @@ const IndexPage = () => {
                   loading={data == null}
                   pass={
                     // TODO: Properly type this
-                    data?.data.filter((e: { attributes: { website: string } }) =>
+                    data?.filter((e: { attributes: { website: string } }) =>
                       e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
                   }
@@ -84,7 +92,7 @@ const IndexPage = () => {
                   loading={data == null}
                   pass={
                     // TODO: Properly type this
-                    data?.data.filter((e: { attributes: { website: string } }) =>
+                    data?.filter((e: { attributes: { website: string } }) =>
                       e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
                   }
@@ -117,7 +125,7 @@ const IndexPage = () => {
                   loading={data == null}
                   pass={
                     // TODO: Properly type this
-                    data?.data.filter((e: { attributes: { website: string } }) =>
+                    data?.filter((e: { attributes: { website: string } }) =>
                       e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
                   }
