@@ -33,6 +33,7 @@ import {
   siMediafire,
   siMessenger,
   siMicrosoft,
+  siMicrosoftazure,
   siMicrosoftoffice,
   siMicrosoftsharepoint,
   siNetflix,
@@ -45,6 +46,7 @@ import {
   siPaypal,
   siPinterest,
   siPolywork,
+  siPubg,
   siPypi,
   siQuora,
   siReddit,
@@ -108,6 +110,7 @@ export const devStarterPack = [
   { website: 'cloudflare.com', icon: siCloudflare },
   { website: 'google.com', icon: siGooglecloud },
   { website: 'https://aws.amazon.com', icon: siAmazonaws },
+  { website: 'azure.com', icon: siMicrosoftazure },
   { website: 'vercel.com', icon: siVercel },
   { website: 'netlify.com', icon: siNetlify },
   { website: 'digitalocean.com', icon: siDigitalocean },
@@ -133,6 +136,12 @@ export const devStarterPack = [
   { website: 'mailchimp.com', icon: siMailchimp },
   { website: 'twilio.com', icon: siTwilio }
 ]
+
+// export const game = [
+//   { website: 'pubg.com', icon: siPubg },
+//   { website: 'pubg.com', icon: siCrossfire },
+//   { website: 'roblox.com', icon: siRoblox }
+// ]
 
 export const idnStarterPack = [
   { website: 'line.me', icon: siLine },
