@@ -19,7 +19,7 @@ type ApiReturnType = {
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 const IndexPage = () => {
-  const { data, error } = useSWR('/api/fetchEntries', fetcher, {
+  const { data, error, isValidating } = useSWR('/api/fetchEntries', fetcher, {
     refreshInterval: 60_000,
     revalidateOnFocus: false
   })
@@ -68,7 +68,7 @@ const IndexPage = () => {
                 <WebsiteEntry
                   website={website.icon}
                   key={website.icon.title}
-                  loading={data == null}
+                  loading={data == null || isValidating}
                   pass={
                     // TODO: Properly type this
                     data?.filter((e: { attributes: { website: string } }) =>
@@ -89,7 +89,7 @@ const IndexPage = () => {
                 <WebsiteEntry
                   website={website.icon}
                   key={website.icon.title}
-                  loading={data == null}
+                  loading={data == null || isValidating}
                   pass={
                     // TODO: Properly type this
                     data?.filter((e: { attributes: { website: string } }) =>
@@ -122,7 +122,7 @@ const IndexPage = () => {
                 <WebsiteEntry
                   website={website.icon}
                   key={website.icon.title}
-                  loading={data == null}
+                  loading={data == null || isValidating}
                   pass={
                     // TODO: Properly type this
                     data?.filter((e: { attributes: { website: string } }) =>
