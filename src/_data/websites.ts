@@ -113,7 +113,7 @@ export const idnStarterPack = [
   { website: 'jenius.com', icon: jeniusIcon },
   { website: 'steampowered.com', icon: siSteam },
   { website: 'linkedin.com', icon: siLinkedin },
-  { website: 'alodokter.com', icon: alodokterIcon },
+  { website: 'www.alodokter.com', icon: alodokterIcon },
   { website: 'mangaku.com', icon: mangakuIcon },
   { website: 'roblox.com', icon: siRoblox },
   { website: 'www.halodoc.com', icon: halodocIcon },
