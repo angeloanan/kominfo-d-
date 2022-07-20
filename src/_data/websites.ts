@@ -116,7 +116,7 @@ export const idnStarterPack = [
   { website: 'alodokter.com', icon: alodokterIcon },
   { website: 'mangaku.com', icon: mangakuIcon },
   { website: 'roblox.com', icon: siRoblox },
-  { website: 'halodoc.com', icon: halodocIcon },
+  { website: 'www.halodoc.com', icon: halodocIcon },
   { website: 'mediafire.com', icon: siMediafire },
   { website: 'www.vidio.com', icon: vidioComIcon },
   { website: 'kemdikbud.go.id', icon: kemdikbudIcon },
