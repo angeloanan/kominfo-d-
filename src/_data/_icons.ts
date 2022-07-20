@@ -119,3 +119,9 @@ export const pedulilindungiIcon: Partial<SimpleIcon> = {
   hex: '',
   path: ''
 }
+
+export const mobileLegendsIcon: Partial<SimpleIcon> = {
+  title: 'Mobile Legends',
+  hex: '',
+  path: ''
+}
