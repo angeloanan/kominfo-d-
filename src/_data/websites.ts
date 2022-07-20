@@ -181,7 +181,7 @@ export const idnStarterPack = [
   { website: 'paypal.com', icon: siPaypal },
   { website: '2secure.jenius.co.id', icon: jeniusIcon },
   { website: 'steampowered.com', icon: siSteam },
-  { website: 'mobilelegends.com', icon: mobileLegendsIcon },
+  { website: 'play.google.com/store/apps/details?id=com.mobile.legends', icon: mobileLegendsIcon },
   { website: 'linkedin.com', icon: siLinkedin },
   { website: 'www.alodokter.com', icon: alodokterIcon },
   { website: 'mangaku.com', icon: mangakuIcon },
