@@ -142,10 +142,10 @@ const IndexPage = () => {
               Website ini mengambil data dari situs{' '}
               <Link href='https://pse.kominfo.go.id' passHref>
                 <a className='text-blue-800 underline'>PSE Kominfo</a>
-              </Link>
-              . Data situs ini akan secara otomatis diperbaharui setiap 1 menit. Tetapi karena situs
-              kominfo sangat tidak stabil, mungkin data yang disajikan bukanlah data yang paling
-              terbarui.
+              </Link>{' '}
+              dan mencocokan url services dengan link yang ada di database. Data situs ini akan
+              secara otomatis diperbaharui setiap 1 menit. Tetapi karena situs kominfo sangat tidak
+              stabil, mungkin data yang disajikan bukanlah data yang paling terbarui.
             </p>
             <p className='mt-2'>
               Pemilik situs ini akan mencoba untuk menyajikan data yang terbaru dan terakurat.
