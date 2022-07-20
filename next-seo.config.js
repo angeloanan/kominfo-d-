@@ -9,6 +9,13 @@ const defaultSEOConfig = {
 
   description: 'Website ini bakal keblokir ga ya?',
 
+  additionalMetaTags: [
+    {
+      name: 'google-site-verification',
+      content: '6hRj86Hx02xLCsII57JKBQfSui5rHpi9mpF_8DLhDm4'
+    }
+  ],
+
   openGraph: {
     type: 'website',
     locale: 'en_US',
