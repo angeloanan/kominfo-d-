@@ -31,6 +31,7 @@ import {
   siLine,
   siLinear,
   siLinkedin,
+  siLinode,
   siMailchimp,
   siMediafire,
   siMessenger,
@@ -117,6 +118,7 @@ export const devStarterPack = [
   { website: 'netlify.com', icon: siNetlify },
   { website: 'digitalocean.com', icon: siDigitalocean },
   { website: 'vultr.com', icon: siVultr },
+  { website: 'linode.com', icon: siLinode },
   { website: 'ovh.com', icon: siOvh },
   // SocMed
   { website: 'slack.com', icon: siSlack },
