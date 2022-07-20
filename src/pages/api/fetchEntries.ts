@@ -16,17 +16,17 @@ const handler: NextApiHandler = async (req, res) => {
 
     if (race != null) {
       return res
-        .setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=900')
+        .setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=3600')
         .json(await race.json())
     } else {
       return res
-        .setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=900')
+        .setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=3600')
         .json(defaultData)
     }
   } catch {
     // Use default
     return res
-      .setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=900')
+      .setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=3600')
       .json(defaultData)
   }
 }
