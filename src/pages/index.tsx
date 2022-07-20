@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import useSWR from 'swr'
 
-import { websiteListIDN, websiteListUSA } from '../_data/websites'
+import { idnStarterPack, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { useDebounce } from '../hooks/useDebounce'
 
@@ -41,40 +41,6 @@ const IndexPage = () => {
             <span>Website ini bakal keblokir ga ya?</span>
           </div>
 
-          {/* <div>
-            <h2 className='text-2xl font-semibold'>Top websites Indonesia (non-news outlet)</h2>
-            <p>
-              2022 Top websites in Indonesia. Sumber data website diambil dari{' '}
-              <a
-                href='https://www.similarweb.com/top-websites/indonesia/'
-                className='text-blue-700 underline'
-                target='_blank'
-                rel='noreferrer'
-              >
-                semrush.com
-              </a>
-            </p>
-            <p>
-              <em>Catatan: Ada beberapa website ditiadakan karena tidak berhubungan</em>
-            </p>
-            <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-              {websiteListIDN.map((website) => (
-                <WebsiteEntry
-                  website={website.icon}
-                  key={website.icon.title}
-                  loading={data == null}
-                  pass={
-                    // TODO: Properly type this
-                    data?.data.filter(
-                      (e: { attributes: { website: string } }) =>
-                        e.attributes.website === website.website
-                    ).length > 0
-                  }
-                />
-              ))}
-            </div>
-          </div> */}
-
           <div className='mt-16'>
             <h2 className='text-2xl font-semibold'>Confused on what this is?</h2>
             <p>The Indonesian government plans to ban &apos;online service providers&apos;.</p>
@@ -84,6 +50,26 @@ const IndexPage = () => {
                 <a className='text-blue-700 underline'>kominfu.com</a>
               </Link>
             </p>
+          </div>
+
+          <div className='mt-8'>
+            <h2 className='text-2xl font-semibold'>Indonesia Starterpack</h2>
+            <p>Situs atau service ini terpopuler dengan orang Indonesia</p>
+            <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+              {idnStarterPack.map((website) => (
+                <WebsiteEntry
+                  website={website.icon}
+                  key={website.icon.title}
+                  loading={data == null}
+                  pass={
+                    // TODO: Properly type this
+                    data?.data.filter((e: { attributes: { website: string } }) =>
+                      e.attributes.website.toLowerCase().startsWith(website.website)
+                    ).length > 0
+                  }
+                />
+              ))}
+            </div>
           </div>
 
           <div className='mt-8'>

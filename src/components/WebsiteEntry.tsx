@@ -2,7 +2,7 @@ import { Check, X } from 'react-feather'
 import { SimpleIcon } from 'simple-icons'
 
 interface WebsiteEntryProps {
-  website: SimpleIcon
+  website: Partial<SimpleIcon>
   pass?: boolean
   loading?: boolean
 }
