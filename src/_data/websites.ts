@@ -1,5 +1,6 @@
 import {
   siAdobe,
+  siAlgolia,
   siAmazon,
   siAmazonaws,
   siApachemaven,
@@ -8,12 +9,14 @@ import {
   siBlogger,
   siCloudflare,
   siCnn,
+  siCodesandbox,
   siDeezer,
   siDigitalocean,
   siDiscord,
   siDuckduckgo,
   siFacebook,
   siFandom,
+  siFastly,
   siFigma,
   siFirebase,
   siGithub,
@@ -26,6 +29,8 @@ import {
   siImdb,
   siImgur,
   siInstagram,
+  siJenkins,
+  siJsdelivr,
   siLine,
   siLinear,
   siLinkedin,
@@ -118,6 +123,9 @@ export const devStarterPack = [
   { website: 'vultr.com', icon: siVultr },
   { website: 'linode.com', icon: siLinode },
   { website: 'ovh.com', icon: siOvh },
+  { website: 'cdn.jsdelivr.net', icon: siJsdelivr },
+  { website: 'fastly.com', icon: siFastly },
+  { website: 'algolia.com', icon: siAlgolia },
   // SocMed
   { website: 'slack.com', icon: siSlack },
   { website: 'linkedin.com', icon: siLinkedin },
@@ -127,6 +135,7 @@ export const devStarterPack = [
   // Design
   { website: 'figma.com', icon: siFigma },
   { website: 'adobe.com', icon: siAdobe },
+  { website: 'codesandbox.io', icon: siCodesandbox },
   // Docs
   { website: 'notion.com', icon: siNotion },
   { website: 'trello.com', icon: siTrello },
