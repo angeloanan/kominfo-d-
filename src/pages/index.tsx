@@ -150,6 +150,12 @@ const IndexPage = () => {
             <p className='mt-2'>
               Pemilik situs ini akan mencoba untuk menyajikan data yang terbaru dan terakurat.
             </p>
+            <p className='mt-2'>
+              Ingin berkontribusi?{' '}
+              <Link href='https://github.com/angeloanan/kominfo-d-' passHref>
+                <a className='text-blue-800 underline'>Kunjungi repositori kodenya di Github!</a>
+              </Link>
+            </p>
           </section>
 
           <footer className='mt-8 text-sm font-light'>
