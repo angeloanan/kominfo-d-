@@ -135,6 +135,15 @@ const IndexPage = () => {
                 })}
             </>
           )}
+          <footer className='mt-32 text-sm font-light'>
+            <Link href='https://angeloanan.xyz' passHref>
+              <a>
+                <div>Created with 🤨, 😠 and 😡 by Angelo!</div>
+                <div>Found any mistakes? Don&apos; hesitate to contact me</div>
+                <div className='mt-2'>https://angeloanan.xyz | @AfterDarkAngelo</div>
+              </a>
+            </Link>
+          </footer>
         </div>
       </div>
     </>
