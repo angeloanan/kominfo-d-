@@ -64,6 +64,7 @@ import {
   hotstarIcon,
   jeniusIcon,
   kemdikbudIcon,
+  kominfoIcon,
   lazadaIcon,
   mangakuIcon,
   ovoIcon,
@@ -120,7 +121,8 @@ export const idnStarterPack = [
   { website: 'mediafire.com', icon: siMediafire },
   { website: 'www.vidio.com', icon: vidioComIcon },
   { website: 'kemdikbud.go.id', icon: kemdikbudIcon },
-  { website: 'pedulilindungi.id', icon: pedulilindungiIcon }
+  { website: 'kominfo.go.id', icon: kominfoIcon },
+  { website: 'kemkes.go.id', icon: pedulilindungiIcon }
 ]
 
 export const websiteListUSA = [

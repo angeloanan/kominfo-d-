@@ -21,7 +21,7 @@ export const WebsiteEntry = ({ website, pass = false, loading = false }: Website
 
         <div>
           <h3 className='font-semibold text-neutral-800'>{website.title}</h3>
-          <p className='flex justify-center gap-1'>
+          <p className='flex gap-1'>
             <svg
               className='mr-2 h-5 w-5 animate-spin text-neutral-800'
               xmlns='http://www.w3.org/2000/svg'

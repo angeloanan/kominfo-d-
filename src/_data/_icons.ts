@@ -108,8 +108,14 @@ export const vidioComIcon: Partial<SimpleIcon> = {
   path: ''
 }
 
+export const kominfoIcon: Partial<SimpleIcon> = {
+  title: 'Kominfo',
+  hex: '',
+  path: ''
+}
+
 export const pedulilindungiIcon: Partial<SimpleIcon> = {
-  title: 'PeduliLindungi',
+  title: 'Kemkes (Pedulilindungi)',
   hex: '',
   path: ''
 }
