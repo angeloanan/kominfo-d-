@@ -26,7 +26,7 @@ function CustomApp({ Component, pageProps }: CustomAppProps) {
       </div>
 
       <Script
-        strategy='lazyOnload'
+        strategy='afterInteractive'
         defer
         src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "f24172e2386840c181d18d8e617a5861"}'
