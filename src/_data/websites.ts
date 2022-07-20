@@ -97,7 +97,7 @@ export const idnStarterPack = [
   { website: 'tokopedia.com', icon: tokopediaIcon },
   { website: 'shopee.co.id', icon: shopeeIcon },
   { website: 'www.lazada.co.id', icon: lazadaIcon },
-  { website: 'traveloka.com', icon: travelokaIcon },
+  { website: 'traveloka.co.id', icon: travelokaIcon },
   { website: 'bca.co.id', icon: bcaIcon },
   { website: 'classroom.google.com', icon: siGoogleclassroom },
   { website: 'drive.google.com', icon: siGoogledrive },
