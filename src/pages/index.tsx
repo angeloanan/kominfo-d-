@@ -156,7 +156,7 @@ const IndexPage = () => {
             <Link href='https://angeloanan.xyz' passHref>
               <a>
                 <div>Created with 🤨, 😠 and 😡 by Angelo!</div>
-                <div>Found any mistakes? Don&apos; hesitate to contact me</div>
+                <div>Found any mistakes? Don&apos;t hesitate to contact me</div>
                 <div className='mt-2'>https://angeloanan.xyz | @AfterDarkAngelo</div>
               </a>
             </Link>
