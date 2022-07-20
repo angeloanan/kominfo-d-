@@ -19,7 +19,7 @@ type ApiReturnType = {
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 const IndexPage = () => {
-  const { data, error } = useSWR<ApiReturnType>('/api/fetchEntries', fetcher, {
+  const { data, error } = useSWR('/api/fetchEntries', fetcher, {
     refreshInterval: 60_000,
     revalidateOnFocus: false
   })
