@@ -13,7 +13,18 @@ const defaultSEOConfig = {
     type: 'website',
     locale: 'en_US',
     url: process.env.SITE_URL ?? 'https://kominfod.angelo.fyi',
-    site_name: "Kominfo'd"
+    site_name: "Kominfo'd",
+    images: [
+      {
+        url: 'https://kominfod.angelo.fyi/og.png',
+        alt: "Kominfo'd - Website ini keblokir ga ya?"
+      }
+    ]
+  },
+
+  twitter: {
+    cardType: 'summary',
+    site: '@AfterDarkAngelo'
   }
 }
 
