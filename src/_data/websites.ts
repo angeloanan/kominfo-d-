@@ -111,7 +111,7 @@ export const idnStarterPack = [
   { website: 'soundcloud.com', icon: siSoundcloud },
   { website: 'www.zenius.net', icon: zeniusIcon },
   { website: 'paypal.com', icon: siPaypal },
-  { website: 'jenius.com', icon: jeniusIcon },
+  { website: '2secure.jenius.co.id', icon: jeniusIcon },
   { website: 'steampowered.com', icon: siSteam },
   { website: 'linkedin.com', icon: siLinkedin },
   { website: 'www.alodokter.com', icon: alodokterIcon },
