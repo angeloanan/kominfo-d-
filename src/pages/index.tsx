@@ -65,6 +65,28 @@ const IndexPage = () => {
           </section>
 
           <section className='mt-8'>
+            <h2 className='text-2xl font-semibold'>Bagaimana cara kerja situs ini?</h2>
+            <p className='mt-2 max-w-prose'>
+              Website ini mengambil data dari situs{' '}
+              <Link href='https://pse.kominfo.go.id' passHref>
+                <a className='text-blue-800 underline'>PSE Kominfo</a>
+              </Link>{' '}
+              dan mencocokan url services dengan link yang ada di database. Data situs ini akan
+              secara otomatis diperbaharui setiap 1 menit. Tetapi karena situs kominfo sangat tidak
+              stabil, mungkin data yang disajikan bukanlah data yang paling terbarui.
+            </p>
+            <p className='mt-4'>
+              Pemilik situs ini akan mencoba untuk menyajikan data yang terbaru dan terakurat.
+            </p>
+            <p className='mt-4'>
+              Ingin berkontribusi?{' '}
+              <Link href='https://github.com/angeloanan/kominfo-d-' passHref>
+                <a className='text-blue-800 underline'>Kunjungi repositori kodenya di Github!</a>
+              </Link>
+            </p>
+          </section>
+
+          <section className='mt-8'>
             <h2 className='text-2xl font-semibold'>Indonesia Starterpack</h2>
             <p>Situs atau service ini terpopuler dengan orang Indonesia</p>
             <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
@@ -167,28 +189,6 @@ const IndexPage = () => {
                     </div>
                   )
                 })}
-          </section>
-
-          <section className=''>
-            <h2 className='text-2xl font-semibold'>Bagaimana cara kerja situs ini?</h2>
-            <p className='mt-2 max-w-prose'>
-              Website ini mengambil data dari situs{' '}
-              <Link href='https://pse.kominfo.go.id' passHref>
-                <a className='text-blue-800 underline'>PSE Kominfo</a>
-              </Link>{' '}
-              dan mencocokan url services dengan link yang ada di database. Data situs ini akan
-              secara otomatis diperbaharui setiap 1 menit. Tetapi karena situs kominfo sangat tidak
-              stabil, mungkin data yang disajikan bukanlah data yang paling terbarui.
-            </p>
-            <p className='mt-2'>
-              Pemilik situs ini akan mencoba untuk menyajikan data yang terbaru dan terakurat.
-            </p>
-            <p className='mt-2'>
-              Ingin berkontribusi?{' '}
-              <Link href='https://github.com/angeloanan/kominfo-d-' passHref>
-                <a className='text-blue-800 underline'>Kunjungi repositori kodenya di Github!</a>
-              </Link>
-            </p>
           </section>
 
           <footer className='mt-8 text-sm font-light'>
