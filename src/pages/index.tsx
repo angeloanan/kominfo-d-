@@ -75,8 +75,9 @@ const IndexPage = () => {
               secara otomatis diperbaharui setiap 1 menit. Tetapi karena situs kominfo sangat tidak
               stabil, mungkin data yang disajikan bukanlah data yang paling terbarui.
             </p>
-            <p className='mt-4'>
-              Pemilik situs ini akan mencoba untuk menyajikan data yang terbaru dan terakurat.
+            <p className='mt-4 max-w-prose'>
+              Pemilik situs ini akan mencoba untuk menyajikan data yang terbaru dan terakurat. Jika
+              ada masalah, dimohon untuk mengontak saya melalui link di footer!
             </p>
             <p className='mt-4'>
               Ingin berkontribusi?{' '}
