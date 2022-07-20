@@ -119,10 +119,10 @@ export const idnStarterPack = [
   { website: 'roblox.com', icon: siRoblox },
   { website: 'www.halodoc.com', icon: halodocIcon },
   { website: 'mediafire.com', icon: siMediafire },
-  { website: 'www.vidio.com', icon: vidioComIcon },
-  { website: 'kemdikbud.go.id', icon: kemdikbudIcon },
-  { website: 'kominfo.go.id', icon: kominfoIcon },
-  { website: 'kemkes.go.id', icon: pedulilindungiIcon }
+  { website: 'www.vidio.com', icon: vidioComIcon }
+  // { website: 'kemdikbud.go.id', icon: kemdikbudIcon },
+  // { website: 'kominfo.go.id', icon: kominfoIcon },
+  // { website: 'kemkes.go.id', icon: pedulilindungiIcon }
 ]
 
 export const websiteListUSA = [
