@@ -147,7 +147,7 @@ export const devStarterPack = [
 export const idnStarterPack = [
   { website: 'line.me', icon: siLine },
   { website: 'web.whatsapp.com', icon: siWhatsapp },
-  { website: 'ovo.id', icon: ovoIcon },
+  { website: 'https://www.ovo.id/', icon: ovoIcon },
   { website: 'tiktok.com', icon: siTiktok },
   { website: 'google.com', icon: siGoogle },
   { website: 'facebook.com', icon: siFacebook },
