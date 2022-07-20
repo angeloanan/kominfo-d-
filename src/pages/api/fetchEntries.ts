@@ -10,7 +10,7 @@ const handler: NextApiHandler = async (req, res) => {
 
   try {
     const race = await Promise.race([
-      setTimeout(9000, null),
+      setTimeout(8000, null),
       fetch('https://pse.kominfo.go.id/api/v1/jsonapi/tdpse-terbit')
     ])
 
