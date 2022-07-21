@@ -34,6 +34,7 @@ import {
   siLine,
   siLinear,
   siLinkedin,
+  siLinktree,
   siLinode,
   siMailchimp,
   siMediafire,
@@ -199,7 +200,8 @@ export const idnStarterPack = [
   { website: 'roblox.com', icon: siRoblox },
   { website: 'www.halodoc.com', icon: halodocIcon },
   { website: 'mediafire.com', icon: siMediafire },
-  { website: 'www.vidio.com', icon: vidioComIcon }
+  { website: 'www.vidio.com', icon: vidioComIcon },
+  { website: 'linktr.ee', icon: siLinktree }
   // { website: 'kemdikbud.go.id', icon: kemdikbudIcon },
   // { website: 'kominfo.go.id', icon: kominfoIcon },
   // { website: 'kemkes.go.id', icon: pedulilindungiIcon }
