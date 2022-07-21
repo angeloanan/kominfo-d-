@@ -5,9 +5,15 @@ interface WebsiteEntryProps {
   website: Partial<SimpleIcon>
   pass?: boolean
   loading?: boolean
+  url: string
 }
 
-export const WebsiteEntry = ({ website, pass = false, loading = false }: WebsiteEntryProps) => {
+export const WebsiteEntry = ({
+  website,
+  pass = false,
+  loading = false,
+  url
+}: WebsiteEntryProps) => {
   const size = 32
 
   // TODO: Refactor
@@ -51,37 +57,41 @@ export const WebsiteEntry = ({ website, pass = false, loading = false }: Website
 
   if (pass) {
     return (
-      <div className='flex items-center gap-2 rounded bg-green-100 p-4 outline outline-2 outline-green-400'>
-        <svg height={size} width={size} fill='currentColor' style={{ color: website.hex }}>
-          <title>{website.title}</title>
-          <path d={website.path} />
-        </svg>
-
-        <div>
-          <h3 className='font-semibold text-green-800'>{website.title}</h3>
-          <p className='flex gap-1'>
-            <Check className='text-green-800' /> Pass
-          </p>
-        </div>
-      </div>
-    )
-  } else {
-    return (
-      <div className='flex items-center gap-2 rounded bg-red-200 p-4 outline outline-2 outline-red-500'>
-        <div className='flex h-8 w-8 items-center'>
+      <a href={url} target='_blank' rel='noreferrer'>
+        <div className='flex items-center gap-2 rounded bg-green-100 p-4 outline outline-2 outline-green-400'>
           <svg height={size} width={size} fill='currentColor' style={{ color: website.hex }}>
             <title>{website.title}</title>
             <path d={website.path} />
           </svg>
-        </div>
 
-        <div>
-          <h3 className='text-lg font-bold text-red-800'>{website.title}</h3>
-          <p className='flex gap-1 font-medium italic text-red-700'>
-            <X className='text-red-600' /> BLOCKED
-          </p>
+          <div>
+            <h3 className='font-semibold text-green-800'>{website.title}</h3>
+            <p className='flex gap-1'>
+              <Check className='text-green-800' /> Pass
+            </p>
+          </div>
         </div>
-      </div>
+      </a>
+    )
+  } else {
+    return (
+      <a href={url} target='_blank' rel='noreferrer'>
+        <div className='flex items-center gap-2 rounded bg-red-200 p-4 outline outline-2 outline-red-500'>
+          <div className='flex h-8 w-8 items-center'>
+            <svg height={size} width={size} fill='currentColor' style={{ color: website.hex }}>
+              <title>{website.title}</title>
+              <path d={website.path} />
+            </svg>
+          </div>
+
+          <div>
+            <h3 className='text-lg font-bold text-red-800'>{website.title}</h3>
+            <p className='flex gap-1 font-medium italic text-red-700'>
+              <X className='text-red-600' /> BLOCKED
+            </p>
+          </div>
+        </div>
+      </a>
     )
   }
 }

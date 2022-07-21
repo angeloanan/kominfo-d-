@@ -102,6 +102,11 @@ const IndexPage = () => {
                       e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
                   }
+                  url={
+                    website.website.includes('http')
+                      ? website.website
+                      : `https://${website.website}`
+                  }
                 />
               ))}
             </div>
@@ -122,6 +127,11 @@ const IndexPage = () => {
                     data?.filter((e: { attributes: { website: string } }) =>
                       e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
+                  }
+                  url={
+                    website.website.includes('http')
+                      ? website.website
+                      : `https://${website.website}`
                   }
                 />
               ))}
@@ -155,6 +165,11 @@ const IndexPage = () => {
                     data?.filter((e: { attributes: { website: string } }) =>
                       e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
+                  }
+                  url={
+                    website.website.includes('http')
+                      ? website.website
+                      : `https://${website.website}`
                   }
                 />
               ))}
