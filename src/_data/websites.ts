@@ -79,7 +79,8 @@ import {
   siYahoo,
   siYoutube,
   siZoho,
-  siZoom
+  siZoom,
+  siBitbucket
 } from 'simple-icons/icons'
 
 import {
@@ -107,6 +108,7 @@ export const devStarterPack = [
   // Code storage
   { website: 'github.com', icon: siGithub },
   { website: 'gitlab.com', icon: siGitlab },
+  { website: 'bitbucket.org', icon: siBitbucket },
   // Libs
   { website: 'pypi.org', icon: siPypi },
   { website: 'npmjs.com', icon: siNpm },
