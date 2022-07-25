@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import Link from 'next/link.js'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
@@ -36,7 +35,7 @@ const IndexPage = () => {
           <section className='mt-8'>
             <h2 className='text-2xl font-semibold'>Indonesia Starterpack</h2>
             <p>Situs atau service ini terpopuler dengan orang Indonesia</p>
-            <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+            <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
               {idnStarterPack.map((website) => (
                 <WebsiteEntry
                   website={website.icon}
@@ -51,14 +50,14 @@ const IndexPage = () => {
                   }
                 />
               ))}
-            </div>
+            </ul>
           </section>
 
           <section className='mt-8'>
             <h2 className='text-2xl font-semibold'>Essential developer toolkit</h2>
             <p>Service yang ✨ anak bangsa ✨ mungkin akan pakai saat membuat app</p>
 
-            <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+            <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
               {devStarterPack.map((website) => (
                 <WebsiteEntry
                   website={website.icon}
@@ -73,7 +72,7 @@ const IndexPage = () => {
                   }
                 />
               ))}
-            </div>
+            </ul>
           </section>
 
           <section className='mt-8'>
@@ -92,7 +91,7 @@ const IndexPage = () => {
             <p>
               <em>Catatan: Ada beberapa website ditiadakan karena tidak berhubungan</em>
             </p>
-            <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+            <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
               {websiteListUSA.map((website) => (
                 <WebsiteEntry
                   website={website.icon}
@@ -107,7 +106,7 @@ const IndexPage = () => {
                   }
                 />
               ))}
-            </div>
+            </ul>
           </section>
 
           <ManualSearchSection data={data} />
