@@ -22,7 +22,8 @@ export const ExplanationSection = () => {
       </p>
 
       <p className='mt-4 max-w-prose'>
-        Setiap situs yang match dengan database kami akan menampilkan status &quot;<em>Pass</em>
+        Setiap situs yang match dengan database kami akan menampilkan status &quot;
+        <em>Registered</em>
         &quot;. Jika tidak, maka akan menampilkan status &quot;<em>BLOCKED</em>&quot;, sesuai dengan{' '}
         <Link
           href='https://peraturan.bpk.go.id/Home/Details/203049/permenkominfo-no-5-tahun-2020'
