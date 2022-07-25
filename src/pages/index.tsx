@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import useSWR from 'swr'
 
-import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from '../_data/websites'
+import { devStarterPack, idnStarterPack, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { ExplanationSection, ManualSearchSection, WhatIsThisSection } from '../modules'
 import type { PSEData } from '../types/PSEData'
@@ -111,28 +111,6 @@ const IndexPage = () => {
                 />
               ))}
             </ul>
-          </section>
-
-          <section className='mt-8'>
-            <h2 className='text-2xl font-semibold'>Linux Starterpack</h2>
-            <p>Service yang sering dipakai Linux user 🐧</p>
-
-            <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-              {linuxStarterPack.map((website) => (
-                <WebsiteEntry
-                  website={website.icon}
-                  key={website.icon.title}
-                  loading={data == null || isValidating}
-                  pass={
-                    // TODO: Properly type this
-                    data != null &&
-                    data?.filter((e: { attributes: { website: string } }) =>
-                      e.attributes.website.toLowerCase().startsWith(website.website)
-                    ).length > 0
-                  }
-                />
-              ))}
-            </div>
           </section>
 
           <ManualSearchSection data={data} />

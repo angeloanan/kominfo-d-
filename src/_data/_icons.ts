@@ -125,33 +125,3 @@ export const mobileLegendsIcon: Partial<SimpleIcon> = {
   hex: '',
   path: ''
 }
-
-export const devDocsIcon: Partial<SimpleIcon> = {
-  title: 'DevDocs',
-  hex: '',
-  path: ''
-}
-
-export const nodeMCUIcon: Partial<SimpleIcon> = {
-  title: 'NodeMCU',
-  hex: '',
-  path: ''
-}
-
-export const components101Icon: Partial<SimpleIcon> = {
-  title: 'Components101',
-  hex: '',
-  path: ''
-}
-
-export const w3SchoolsIcon: Partial<SimpleIcon> = {
-  title: 'W3Schools',
-  hex: '',
-  path: ''
-}
-
-export const ubuntuArchivesIcon: Partial<SimpleIcon> = {
-  title: 'Ubuntu Packages',
-  hex: '',
-  path: ''
-}
