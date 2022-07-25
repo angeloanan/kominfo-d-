@@ -23,7 +23,8 @@
     "next-env.d.ts",
     "vendor.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "scripts/scrape.mjs"
   ],
   "exclude": [
     "node_modules"
