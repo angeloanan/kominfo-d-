@@ -1,4 +1,4 @@
-import Fuse from 'fuse.js'
+import dynamic from 'next/dynamic'
 import Link from 'next/link.js'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
@@ -6,8 +6,8 @@ import useSWR from 'swr'
 
 import { devStarterPack, idnStarterPack, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
-import { useDebounce } from '../hooks/useDebounce'
-import { PSEData } from '../types/PSEData.js'
+import { ExplanationSection, ManualSearchSection, WhatIsThisSection } from '../modules'
+import type { PSEData } from '../types/PSEData'
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
@@ -17,20 +17,6 @@ const IndexPage = () => {
     refreshInterval: 60 * 60 * 1000,
     revalidateOnFocus: false
   })
-
-  const fuseInstance = React.useRef<any>(null)
-  const [searchQuery, setSearchQuery] = React.useState('')
-  const debouncedQuery = useDebounce(searchQuery, 500)
-
-  React.useEffect(() => {
-    if (data == null) return
-
-    fuseInstance.current = new Fuse(data, {
-      keys: ['attributes.website'],
-      isCaseSensitive: true,
-      threshold: 0.8
-    })
-  }, [data])
 
   return (
     <>
@@ -43,43 +29,9 @@ const IndexPage = () => {
             <span>Website ini bakal keblokir ga ya?</span>
           </header>
 
-          <section className='mt-16'>
-            <h2 className='text-2xl font-semibold'>Confused on what this is?</h2>
-            <p className='max-w-prose'>
-              The Indonesian government is forcing &apos;online service providers&apos; to register
-              their apps and services in their database. Failing to do so will cause them to be
-              blocked.
-            </p>
-            <p className='mt-4'>
-              Read more about it here:{' '}
-              <Link href={'https://kominfu.com'} passHref>
-                <a className='text-blue-700 underline'>kominfu.com</a>
-              </Link>
-            </p>
-          </section>
+          <WhatIsThisSection />
 
-          <section className='mt-8'>
-            <h2 className='text-2xl font-semibold'>Bagaimana cara kerja situs ini?</h2>
-            <p className='mt-2 max-w-prose'>
-              Website ini mengambil data dari situs{' '}
-              <Link href='https://pse.kominfo.go.id' passHref>
-                <a className='text-blue-800 underline'>PSE Kominfo</a>
-              </Link>{' '}
-              dan mencocokan url services dengan link yang ada di database. Data situs ini akan
-              secara otomatis diperbaharui setiap 1 menit. Tetapi karena situs kominfo sangat tidak
-              stabil, mungkin data yang disajikan bukanlah data yang paling terbarui.
-            </p>
-            <p className='mt-4 max-w-prose'>
-              Pemilik situs ini akan mencoba untuk menyajikan data yang terbaru dan terakurat. Jika
-              ada masalah, dimohon untuk mengontak saya melalui link di footer!
-            </p>
-            <p className='mt-4'>
-              Ingin berkontribusi?{' '}
-              <Link href='https://github.com/angeloanan/kominfo-d-' passHref>
-                <a className='text-blue-800 underline'>Kunjungi repositori kodenya di Github!</a>
-              </Link>
-            </p>
-          </section>
+          <ExplanationSection />
 
           <section className='mt-8'>
             <h2 className='text-2xl font-semibold'>Indonesia Starterpack</h2>
@@ -158,36 +110,7 @@ const IndexPage = () => {
             </div>
           </section>
 
-          <section className='mt-8 mb-4'>
-            <h2 className='text-2xl font-semibold'>Cari manual</h2>
-            Jika situs tidak tertampil diatas, anda bisa mencari situs tersebut di sini:{' '}
-            <input
-              className='rounded border border-black p-2'
-              type='search'
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </section>
-
-          <section className='pb-8'>
-            {data &&
-              fuseInstance.current != null &&
-              (fuseInstance.current as Fuse<unknown>)
-                .search(debouncedQuery, { limit: 5 })
-                .map((v) => {
-                  const item = v.item as { attributes: { nama: string; website: string } }
-
-                  return (
-                    <div key={v.refIndex} className='italic'>
-                      <Link href={`https://${item.attributes.website}`} passHref>
-                        <a className='text-blue-800 underline'>
-                          <span className='font-bold'>{item.attributes.nama}</span> -{' '}
-                          {item.attributes.website}
-                        </a>
-                      </Link>
-                    </div>
-                  )
-                })}
-          </section>
+          <ManualSearchSection data={data} />
 
           <footer className='mt-8 text-sm font-light'>
             <Link href='https://angeloanan.xyz' passHref>
