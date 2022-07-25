@@ -7,20 +7,14 @@ import useSWR from 'swr'
 import { devStarterPack, idnStarterPack, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { useDebounce } from '../hooks/useDebounce'
-
-type ApiReturnType = {
-  attributes: {
-    nama: string | null
-    nama_perusahaan: string | null
-    website: string | null
-  }
-}[]
+import { PSEData } from '../types/PSEData.js'
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 const IndexPage = () => {
-  const { data, error, isValidating } = useSWR('/api/fetchEntries', fetcher, {
-    refreshInterval: 60_000,
+  const { data, error, isValidating } = useSWR<PSEData[]>('/data.json', fetcher, {
+    // 1 Hour refresh
+    refreshInterval: 60 * 60 * 1000,
     revalidateOnFocus: false
   })
 
@@ -98,7 +92,8 @@ const IndexPage = () => {
                   loading={data == null || isValidating}
                   pass={
                     // TODO: Properly type this
-                    data?.filter((e: { attributes: { website: string } }) =>
+                    data != null &&
+                    data?.filter((e) =>
                       e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
                   }
@@ -119,7 +114,8 @@ const IndexPage = () => {
                   loading={data == null || isValidating}
                   pass={
                     // TODO: Properly type this
-                    data?.filter((e: { attributes: { website: string } }) =>
+                    data != null &&
+                    data?.filter((e) =>
                       e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
                   }
@@ -152,7 +148,8 @@ const IndexPage = () => {
                   loading={data == null || isValidating}
                   pass={
                     // TODO: Properly type this
-                    data?.filter((e: { attributes: { website: string } }) =>
+                    data != null &&
+                    data?.filter((e) =>
                       e.attributes.website.toLowerCase().startsWith(website.website)
                     ).length > 0
                   }
