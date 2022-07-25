@@ -1,3 +1,5 @@
+// Generated using: https://app.quicktype.io/
+
 export interface PSEData {
   type: Type
   id: number
@@ -10,7 +12,7 @@ export interface Attributes {
   website: string
   sektor: string
   nama_perusahaan: string
-  tanggal_daftar: Date
+  tanggal_daftar: string
   nomor_tanda_daftar: string
   qr_code: string
   status_id: StatusID
