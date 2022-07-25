@@ -6,6 +6,7 @@ import {
   siApachemaven,
   siAppstore,
   siAtlassian,
+  siBitbucket,
   siBlogger,
   siCloudflare,
   siCnn,
@@ -34,6 +35,7 @@ import {
   siLine,
   siLinear,
   siLinkedin,
+  siLinktree,
   siLinode,
   siMailchimp,
   siMediafire,
@@ -107,6 +109,7 @@ export const devStarterPack = [
   // Code storage
   { website: 'github.com', icon: siGithub },
   { website: 'gitlab.com', icon: siGitlab },
+  { website: 'bitbucket.org', icon: siBitbucket },
   // Libs
   { website: 'pypi.org', icon: siPypi },
   { website: 'npmjs.com', icon: siNpm },
@@ -115,7 +118,7 @@ export const devStarterPack = [
   { website: 'firebase.google.com', icon: siFirebase },
   { website: 'cloudflare.com', icon: siCloudflare },
   { website: 'google.com', icon: siGooglecloud },
-  { website: 'https://aws.amazon.com', icon: siAmazonaws },
+  { website: 'aws.amazon.com', icon: siAmazonaws },
   { website: 'azure.com', icon: siMicrosoftazure },
   { website: 'vercel.com', icon: siVercel },
   { website: 'netlify.com', icon: siNetlify },
@@ -157,7 +160,7 @@ export const devStarterPack = [
 export const idnStarterPack = [
   { website: 'line.me', icon: siLine },
   { website: 'web.whatsapp.com', icon: siWhatsapp },
-  { website: 'https://www.ovo.id/', icon: ovoIcon },
+  { website: 'www.ovo.id', icon: ovoIcon },
   { website: 'tiktok.com', icon: siTiktok },
   { website: 'google.com', icon: siGoogle },
   { website: 'facebook.com', icon: siFacebook },
@@ -170,7 +173,7 @@ export const idnStarterPack = [
   { website: 'web.telegram.org', icon: siTelegram },
   { website: 'spotify.com', icon: siSpotify },
   { website: 'deezer.com', icon: siDeezer },
-  { website: 'https://www.telkomsel.com/', icon: telkomselIcon },
+  { website: 'www.telkomsel.com', icon: telkomselIcon },
   { website: 'waze.com', icon: siWaze },
   { website: 'tokopedia.com', icon: tokopediaIcon },
   { website: 'shopee.co.id', icon: shopeeIcon },
@@ -197,7 +200,8 @@ export const idnStarterPack = [
   { website: 'roblox.com', icon: siRoblox },
   { website: 'www.halodoc.com', icon: halodocIcon },
   { website: 'mediafire.com', icon: siMediafire },
-  { website: 'www.vidio.com', icon: vidioComIcon }
+  { website: 'www.vidio.com', icon: vidioComIcon },
+  { website: 'linktr.ee', icon: siLinktree }
   // { website: 'kemdikbud.go.id', icon: kemdikbudIcon },
   // { website: 'kominfo.go.id', icon: kominfoIcon },
   // { website: 'kemkes.go.id', icon: pedulilindungiIcon }

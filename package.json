@@ -12,7 +12,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "scrape": "node scripts/scrape.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.4",
