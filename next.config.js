@@ -14,7 +14,7 @@ const nextConfig = {
   swcMinify: true,
   optimizeFonts: true,
   i18n: {
-    locales: ['en-US'],
+    locales: ['en-US', 'id'],
     defaultLocale: 'en-US'
   },
   api: {
