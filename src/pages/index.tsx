@@ -9,6 +9,19 @@ import { ExplanationSection, ManualSearchSection, WhatIsThisSection } from '../m
 import type { PSEData } from '../types/PSEData'
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
+const isWebsiteRegistered = (websiteData: PSEData[], findUrl: string) => {
+  return websiteData.some((entry) =>
+    // Return true if the url is found in the list of registered websites
+    entry.attributes.website.toLowerCase().startsWith('http')
+      ? // Handles URL starts with http, removing protocol
+        entry.attributes.website
+          .toLowerCase()
+          .replace(/(https?:\/\/)/, '')
+          .startsWith(findUrl)
+      : // Directly searches for entry
+        entry.attributes.website.toLowerCase().startsWith(findUrl)
+  )
+}
 
 const IndexPage = () => {
   const { data, error, isValidating } = useSWR<PSEData[]>('/data.json', fetcher, {
@@ -43,10 +56,7 @@ const IndexPage = () => {
                   loading={data == null || isValidating}
                   pass={
                     // TODO: Properly type this
-                    data != null &&
-                    data?.filter((e) =>
-                      e.attributes.website.toLowerCase().startsWith(website.website)
-                    ).length > 0
+                    data != null && isWebsiteRegistered(data, website.website)
                   }
                 />
               ))}
@@ -65,10 +75,7 @@ const IndexPage = () => {
                   loading={data == null || isValidating}
                   pass={
                     // TODO: Properly type this
-                    data != null &&
-                    data?.filter((e) =>
-                      e.attributes.website.toLowerCase().startsWith(website.website)
-                    ).length > 0
+                    data != null && isWebsiteRegistered(data, website.website)
                   }
                 />
               ))}
@@ -99,10 +106,7 @@ const IndexPage = () => {
                   loading={data == null || isValidating}
                   pass={
                     // TODO: Properly type this
-                    data != null &&
-                    data?.filter((e) =>
-                      e.attributes.website.toLowerCase().startsWith(website.website)
-                    ).length > 0
+                    data != null && isWebsiteRegistered(data, website.website)
                   }
                 />
               ))}

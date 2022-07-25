@@ -6,6 +6,7 @@ import {
   siApachemaven,
   siAppstore,
   siAtlassian,
+  siBitbucket,
   siBlogger,
   siCloudflare,
   siCnn,
@@ -80,8 +81,7 @@ import {
   siYahoo,
   siYoutube,
   siZoho,
-  siZoom,
-  siBitbucket
+  siZoom
 } from 'simple-icons/icons'
 
 import {
@@ -118,7 +118,7 @@ export const devStarterPack = [
   { website: 'firebase.google.com', icon: siFirebase },
   { website: 'cloudflare.com', icon: siCloudflare },
   { website: 'google.com', icon: siGooglecloud },
-  { website: 'https://aws.amazon.com', icon: siAmazonaws },
+  { website: 'aws.amazon.com', icon: siAmazonaws },
   { website: 'azure.com', icon: siMicrosoftazure },
   { website: 'vercel.com', icon: siVercel },
   { website: 'netlify.com', icon: siNetlify },
@@ -160,7 +160,7 @@ export const devStarterPack = [
 export const idnStarterPack = [
   { website: 'line.me', icon: siLine },
   { website: 'web.whatsapp.com', icon: siWhatsapp },
-  { website: 'https://www.ovo.id/', icon: ovoIcon },
+  { website: 'www.ovo.id', icon: ovoIcon },
   { website: 'tiktok.com', icon: siTiktok },
   { website: 'google.com', icon: siGoogle },
   { website: 'facebook.com', icon: siFacebook },
@@ -173,7 +173,7 @@ export const idnStarterPack = [
   { website: 'web.telegram.org', icon: siTelegram },
   { website: 'spotify.com', icon: siSpotify },
   { website: 'deezer.com', icon: siDeezer },
-  { website: 'https://www.telkomsel.com/', icon: telkomselIcon },
+  { website: 'www.telkomsel.com', icon: telkomselIcon },
   { website: 'waze.com', icon: siWaze },
   { website: 'tokopedia.com', icon: tokopediaIcon },
   { website: 'shopee.co.id', icon: shopeeIcon },
