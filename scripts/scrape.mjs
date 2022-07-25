@@ -1,6 +1,12 @@
 // Run this with --experimental-fetch
 
 import fs from 'fs/promises'
+import { dirname, join } from 'path'
+import { fileURLToPath } from 'url'
+
+// Will use later on for writing
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const generateAsingApiPageNumber = (number = 0) => {
   return `https://pse.kominfo.go.id/static/json-static/ASING_TERDAFTAR/${number}.json`
@@ -74,4 +80,10 @@ console.log(transposedResult)
 console.groupEnd()
 
 console.log('# Writing to file')
-fs.writeFile('../public/data.json', JSON.stringify(transposedResult, null, 2), { encoding: 'utf8' })
+fs.writeFile(
+  join(__dirname, '..', 'public', 'data.json'),
+  JSON.stringify(transposedResult, null, 2),
+  {
+    encoding: 'utf8'
+  }
+)
