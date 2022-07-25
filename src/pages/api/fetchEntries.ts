@@ -1,9 +1,9 @@
 import { NextApiHandler } from 'next'
 
 import defaultData from '../../../public/data.json'
-import { KominfoData } from '../../types/PSEData'
+import { PSEData } from '../../types/PSEData'
 
-const defaultDataTransformed = (defaultData as KominfoData[]).map((e) => ({
+const defaultDataTransformed = (defaultData as PSEData[]).map((e) => ({
   attributes: {
     nama: e.attributes.nama,
     nama_perusahaan: e.attributes.nama_perusahaan,

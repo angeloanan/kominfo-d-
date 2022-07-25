@@ -1,4 +1,4 @@
-export interface KominfoData {
+export interface PSEData {
   type: Type
   id: number
   attributes: Attributes
