@@ -1,4 +1,4 @@
-import { Check, X } from 'react-feather'
+import { AlertCircle, Check, HelpCircle, X } from 'react-feather'
 import { SimpleIcon } from 'simple-icons'
 
 interface WebsiteEntryProps {
@@ -46,8 +46,9 @@ const LoadingSpinnerIcon = () => (
 
 export const WebsiteEntry = ({
   website,
+  loading = false,
   registered = false,
-  loading = false
+  blocked = false
 }: WebsiteEntryProps) => {
   const size = 32
 
@@ -81,8 +82,16 @@ export const WebsiteEntry = ({
     <li
       className={`flex items-center gap-2 rounded  p-4 outline outline-2 ${
         registered
-          ? 'bg-green-100 text-green-800 outline-green-400'
-          : 'bg-red-200 text-red-800 outline-red-500'
+          ? !blocked
+            ? // Registered and not blocked
+              'bg-green-100 text-green-800 outline-green-400'
+            : // Registered but blocked
+              'bg-fuchsia-100 text-fuchsia-800 outline-fuchsia-400'
+          : !blocked
+          ? // Unregistered but not yet blocked
+            'bg-yellow-100 text-yellow-700 outline-yellow-400'
+          : // Unregistered and blocked
+            'bg-red-200 text-red-800 outline-red-500'
       }`}
     >
       <svg
@@ -98,14 +107,25 @@ export const WebsiteEntry = ({
 
       <div>
         <h3 className={registered ? 'font-semibold' : 'text-lg font-bold'}>{website.title}</h3>
-        <p className={`flex gap-1 ${!registered && 'font-medium uppercase italic text-red-700'}`}>
+        <p className={`flex gap-1 ${blocked && 'font-medium uppercase italic text-red-700'}`}>
           {registered ? (
+            !blocked ? (
+              <>
+                <Check aria-hidden /> Registered
+              </>
+            ) : (
+              <>
+                <HelpCircle aria-hidden />
+                Registered but blocked
+              </>
+            )
+          ) : !blocked ? (
             <>
-              <Check aria-hidden /> Registered
+              <AlertCircle aria-hidden /> Unregistered
             </>
           ) : (
             <>
-              <X aria-hidden /> Unregistered
+              <X aria-hidden /> Blocked
             </>
           )}
         </p>
