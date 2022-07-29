@@ -2,9 +2,22 @@ import { Check, X } from 'react-feather'
 import { SimpleIcon } from 'simple-icons'
 
 interface WebsiteEntryProps {
+  /**
+   * Website data
+   */
   website: Partial<SimpleIcon>
-  pass?: boolean
+
   loading?: boolean
+
+  /**
+   * Registered in Goverment's list
+   */
+  registered?: boolean
+
+  /**
+   * Blocked in Indihome's Network - Checked via https://indi.wtf
+   */
+  blocked?: boolean
 }
 
 const LoadingSpinnerIcon = () => (
@@ -31,7 +44,11 @@ const LoadingSpinnerIcon = () => (
   </svg>
 )
 
-export const WebsiteEntry = ({ website, pass = false, loading = false }: WebsiteEntryProps) => {
+export const WebsiteEntry = ({
+  website,
+  registered = false,
+  loading = false
+}: WebsiteEntryProps) => {
   const size = 32
 
   // TODO: Refactor
@@ -63,7 +80,7 @@ export const WebsiteEntry = ({ website, pass = false, loading = false }: Website
   return (
     <li
       className={`flex items-center gap-2 rounded  p-4 outline outline-2 ${
-        pass
+        registered
           ? 'bg-green-100 text-green-800 outline-green-400'
           : 'bg-red-200 text-red-800 outline-red-500'
       }`}
@@ -80,15 +97,15 @@ export const WebsiteEntry = ({ website, pass = false, loading = false }: Website
       </svg>
 
       <div>
-        <h3 className={pass ? 'font-semibold' : 'text-lg font-bold'}>{website.title}</h3>
-        <p className={`flex gap-1 ${!pass && 'font-medium uppercase italic text-red-700'}`}>
-          {pass ? (
+        <h3 className={registered ? 'font-semibold' : 'text-lg font-bold'}>{website.title}</h3>
+        <p className={`flex gap-1 ${!registered && 'font-medium uppercase italic text-red-700'}`}>
+          {registered ? (
             <>
               <Check aria-hidden /> Registered
             </>
           ) : (
             <>
-              <X aria-hidden /> Blocked
+              <X aria-hidden /> Unregistered
             </>
           )}
         </p>

@@ -54,7 +54,7 @@ const IndexPage = () => {
                   website={website.icon}
                   key={website.icon.title}
                   loading={data == null || isValidating}
-                  pass={
+                  registered={
                     // TODO: Properly type this
                     data != null && isWebsiteRegistered(data, website.website)
                   }
@@ -73,7 +73,7 @@ const IndexPage = () => {
                   website={website.icon}
                   key={website.icon.title}
                   loading={data == null || isValidating}
-                  pass={
+                  registered={
                     // TODO: Properly type this
                     data != null && isWebsiteRegistered(data, website.website)
                   }
@@ -104,7 +104,7 @@ const IndexPage = () => {
                   website={website.icon}
                   key={website.icon.title}
                   loading={data == null || isValidating}
-                  pass={
+                  registered={
                     // TODO: Properly type this
                     data != null && isWebsiteRegistered(data, website.website)
                   }
@@ -123,7 +123,7 @@ const IndexPage = () => {
                   website={website.icon}
                   key={website.icon.title}
                   loading={data == null || isValidating}
-                  pass={
+                  registered={
                     // TODO: Properly type this
                     data != null &&
                     data?.filter((e: { attributes: { website: string } }) =>
