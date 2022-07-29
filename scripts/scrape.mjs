@@ -79,8 +79,8 @@ console.group('# Final data output')
 console.log(transposedResult)
 console.groupEnd()
 
-console.log('# Writing to file')
-fs.writeFile(
+console.log(`# Writing to file ${join(__dirname, '..', 'public', 'data.json')}`)
+await fs.writeFile(
   join(__dirname, '..', 'public', 'data.json'),
   JSON.stringify(transposedResult, null, 2),
   {
