@@ -84,6 +84,7 @@ await fs.writeFile(
   join(__dirname, '..', 'public', 'data.json'),
   JSON.stringify(transposedResult, null, 2),
   {
-    encoding: 'utf8'
+    encoding: 'utf8',
+    flag: 'w'
   }
 )
