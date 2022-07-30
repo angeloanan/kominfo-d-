@@ -46,7 +46,8 @@ export const ExplanationSection = () => {
         <Link href='https://twitter.com/fransallen' passHref>
           <a className='text-blue-800 underline'>Frans Allen</a>
         </Link>
-        ). Jika situs tersebut diblokir penuh, maka status website akan berubah menjadi &quot;
+        ). Jika situs tersebut diblokir dari jaringan IndiHome dan tidak terdaftar di situs PSE,
+        maka status website akan berubah menjadi &quot;
         <em>BLOCKED</em>&quot;.
       </p>
 
