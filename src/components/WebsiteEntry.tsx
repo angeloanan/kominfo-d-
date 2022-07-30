@@ -116,7 +116,7 @@ export const WebsiteEntry = ({
             ) : (
               <>
                 <HelpCircle aria-hidden />
-                Registered but blocked
+                Registered but inaccessible
               </>
             )
           ) : !blocked ? (
