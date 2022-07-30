@@ -20,10 +20,13 @@ import {
   siCodecademy,
   siCodesandbox,
   siCodingame,
+  siComposer,
   siDebian,
   siDeezer,
+  siDevdotto,
   siDigitalocean,
   siDiscord,
+  siDocker,
   siDuckduckgo,
   siEa,
   siEpicgames,
@@ -50,6 +53,7 @@ import {
   siJenkins,
   siJsdelivr,
   siKalilinux,
+  siKubernetes,
   siLeetcode,
   siLine,
   siLinear,
@@ -59,6 +63,7 @@ import {
   siLinux,
   siMailchimp,
   siMediafire,
+  siMedium,
   siMessenger,
   siMicrosoft,
   siMicrosoftazure,
@@ -71,7 +76,6 @@ import {
   siNintendo,
   siNotion,
   siNpm,
-  siComposer,
   siOvh,
   siPatreon,
   siPaypal,
@@ -92,8 +96,8 @@ import {
   siStatuspage,
   siSteam,
   siStmicroelectronics,
-  siSurveymonkey,
   siSupabase,
+  siSurveymonkey,
   siTelegram,
   siTiktok,
   siTrello,
@@ -114,11 +118,7 @@ import {
   siYahoo,
   siYoutube,
   siZoho,
-  siZoom,
-  siMedium,
-  siKubernetes,
-  siDocker,
-  siDevdotto,
+  siZoom
 } from 'simple-icons/icons'
 
 import {
@@ -232,7 +232,7 @@ export const devStarterPack = [
   { website: 'us.archive.ubuntu.com', icon: ubuntuArchivesIcon },
   // Article
   { website: 'medium.com', icon: siMedium },
-  { website: 'dev.to', icon: siDevdotto },
+  { website: 'dev.to', icon: siDevdotto }
 ]
 
 // export const game = [
