@@ -1,3 +1,4 @@
+import type { SimpleIcon } from 'simple-icons'
 import {
   siAdafruit,
   siAdobe,
@@ -40,6 +41,7 @@ import {
   siGoogleclassroom,
   siGooglecloud,
   siGoogledrive,
+  siGooglemaps,
   siHackerrank,
   siImdb,
   siImgur,
@@ -136,6 +138,11 @@ import {
   w3SchoolsIcon,
   zeniusIcon
 } from './_icons'
+
+export interface WebsiteData {
+  website: string
+  icon: SimpleIcon
+}
 
 export const devStarterPack = [
   // Code storage
@@ -241,6 +248,7 @@ export const idnStarterPack = [
   { website: 'spotify.com', icon: siSpotify },
   { website: 'deezer.com', icon: siDeezer },
   { website: 'www.telkomsel.com', icon: telkomselIcon },
+  { website: 'google.com', icon: siGooglemaps },
   { website: 'waze.com', icon: siWaze },
   { website: 'tokopedia.com', icon: tokopediaIcon },
   { website: 'shopee.co.id', icon: shopeeIcon },
@@ -280,7 +288,7 @@ export const idnStarterPack = [
 
 export const websiteListUSA = [
   { website: 'google.com', icon: siGoogle },
-  { website: 'youtube.com', icon: siYoutube },
+  { website: 'google.com', icon: siYoutube },
   { website: 'facebook.com', icon: siFacebook },
   { website: 'amazon.com', icon: siAmazon },
   { website: 'apps.apple.com', icon: siAppstore },

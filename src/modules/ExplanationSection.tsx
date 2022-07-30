@@ -57,6 +57,18 @@ export const ExplanationSection = () => {
       </p>
 
       <p className='mt-4 max-w-prose'>
+        P.S, menurut{' '}
+        <Link
+          href='https://tekno.kompas.com/read/2022/07/29/18150067/ini-sebab-google-indonesia-tidak-muncul-di-halaman-pse-kominfo-meski-sudah?page=all'
+          passHref
+        >
+          <a className='text-blue-800 underline'>Kompas.com</a>
+        </Link>
+        , Google Search, Play Store, YouTube dan Google Maps sudah terdaftar walau tidak muncul di
+        situs PSE.
+      </p>
+
+      <p className='mt-4 max-w-prose'>
         Ingin berkontribusi?{' '}
         <Link href='https://github.com/angeloanan/kominfo-d-' passHref>
           <a className='text-blue-800 underline'>Kunjungi repositori kodenya di Github!</a>
