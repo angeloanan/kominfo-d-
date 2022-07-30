@@ -38,7 +38,7 @@ export const ExplanationSection = () => {
 
       <p className='mt-4 max-w-prose'>
         Selain itu, semua situs dibawah akan diperiksa status terblokirnya menggunakan jaringan
-        IndiHome dan Sigma (courtesy of{' '}
+        IndiHome, Sigma (courtesy of{' '}
         <Link href='https://indi.wtf' passHref>
           <a className='text-blue-800 underline'>indi.wtf</a>
         </Link>{' '}
@@ -46,14 +46,25 @@ export const ExplanationSection = () => {
         <Link href='https://twitter.com/fransallen' passHref>
           <a className='text-blue-800 underline'>Frans Allen</a>
         </Link>
-        ). Jika situs tersebut diblokir dari jaringan IndiHome dan tidak terdaftar di situs PSE,
-        maka status website akan berubah menjadi &quot;
-        <em>BLOCKED</em>&quot;.
+        ) serta melalui pengecekan langsung ke sistem TrustPositif milik Kominfo yang digunakan
+        untuk melakukan pemblokiran.
       </p>
 
       <p className='mt-4 max-w-prose'>
-        Pemilik situs akan mencoba untuk menyajikan data yang terbaru dan terakurat. Jika ada
-        masalah, dimohon untuk mengontak saya melalui link di footer!
+        Jika situs tersebut diblokir dari jaringan IndiHome dan tidak terdaftar di situs PSE, maka
+        status website akan berubah menjadi&nbsp;
+        <em className='text-red-700'>BLOCKED</em>.
+      </p>
+
+      <p className='mt-4 max-w-prose'>
+        Situs yang terdaftar pada sistem TrustPositif juga akan memiliki keterangan{' '}
+        <small>TP</small> yang menandakan bahwa website terdaftar pada database pemblokiran resmi
+        miliki Kominfo.
+      </p>
+
+      <p className='mt-4 max-w-prose'>
+        Pemilik situs akan berusaha menyajikan data yang terbaru dan terakurat. Jika ada masalah,
+        dimohon untuk mengontak saya melalui link di footer!
       </p>
 
       <p className='mt-4 max-w-prose'>
