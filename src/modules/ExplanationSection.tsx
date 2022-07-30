@@ -24,14 +24,30 @@ export const ExplanationSection = () => {
       <p className='mt-4 max-w-prose'>
         Setiap situs yang match dengan database kami akan menampilkan status &quot;
         <em>Registered</em>
-        &quot;. Jika tidak, maka akan menampilkan status &quot;<em>BLOCKED</em>&quot;, sesuai dengan{' '}
+        &quot;. Jika tidak, maka akan menampilkan status &quot;<em>Unregistered</em>&quot;. Sesuai
+        dengan{' '}
         <Link
           href='https://peraturan.bpk.go.id/Home/Details/203049/permenkominfo-no-5-tahun-2020'
           passHref
         >
           <a className='text-blue-800 underline'>Permenkominfo 5/2020</a>
         </Link>{' '}
-        Bab II Bagian ketiga Pasal 7 Nomor 2.
+        Bab II Bagian ketiga Pasal 7 Nomor 2, Kominfo akan melakukan &quot;pemblokiran akses&quot;
+        kepada services yang tidak terdaftar.
+      </p>
+
+      <p className='mt-4 max-w-prose'>
+        Selain itu, semua situs dibawah akan diperiksa status terblokirnya menggunakan jaringan
+        IndiHome dan Sigma (courtesy of{' '}
+        <Link href='https://indi.wtf' passHref>
+          <a className='text-blue-800 underline'>indi.wtf</a>
+        </Link>{' '}
+        by{' '}
+        <Link href='https://twitter.com/fransallen' passHref>
+          <a className='text-blue-800 underline'>Frans Allen</a>
+        </Link>
+        ). Jika situs tersebut diblokir penuh, maka status website akan berubah menjadi &quot;
+        <em>BLOCKED</em>&quot;.
       </p>
 
       <p className='mt-4 max-w-prose'>
