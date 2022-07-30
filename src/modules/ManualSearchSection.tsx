@@ -5,12 +5,9 @@ import * as React from 'react'
 import { useDebounce } from '../hooks/useDebounce'
 import type { PSEData } from '../types/PSEData'
 
-export interface ManualSearchSectionProps {
-  data?: PSEData[]
-}
-
-export const ManualSearchSection = ({ data }: ManualSearchSectionProps) => {
+export const ManualSearchSection = () => {
   // TODO: This shit's ugly - Research a better way
+  const FullPSEData = React.useRef<any>(null)
   const Fuse = React.useRef<any>(null)
   const fuseInstance = React.useRef<any>(null)
 
@@ -19,15 +16,15 @@ export const ManualSearchSection = ({ data }: ManualSearchSectionProps) => {
 
   // Re-index on data update
   React.useEffect(() => {
-    if (data == null) return
+    if (FullPSEData.current == null) return
     if (fuseInstance.current == null) return
 
-    fuseInstance.current = new Fuse.current(data, {
+    fuseInstance.current = new Fuse.current(FullPSEData.current, {
       keys: ['attributes.website'],
       isCaseSensitive: true,
       threshold: 0.8
     })
-  }, [data])
+  }, [])
 
   return (
     <>
@@ -39,14 +36,17 @@ export const ManualSearchSection = ({ data }: ManualSearchSectionProps) => {
           type='search'
           onChange={async (e) => {
             // Fetch fuse on first input
-            if (fuseInstance.current == null) {
-              Fuse.current = (await import('fuse.js')).default
+            if (FullPSEData.current == null) {
+              FullPSEData.current = await fetch('/data.json').then((res) => res.json())
+              if (fuseInstance.current == null) {
+                Fuse.current = (await import('fuse.js')).default
 
-              fuseInstance.current = new Fuse.current(data!, {
-                keys: ['attributes.website'],
-                isCaseSensitive: true,
-                threshold: 0.8
-              })
+                fuseInstance.current = new Fuse.current(FullPSEData.current!, {
+                  keys: ['attributes.website'],
+                  isCaseSensitive: true,
+                  threshold: 0.8
+                })
+              }
             }
 
             setSearchQuery(e.target.value)
@@ -54,7 +54,7 @@ export const ManualSearchSection = ({ data }: ManualSearchSectionProps) => {
         />
       </section>
       <section className='pb-8'>
-        {data &&
+        {FullPSEData.current != null &&
           fuseInstance != null &&
           (fuseInstance.current as Fuse<PSEData>)?.search(debouncedQuery, { limit: 5 }).map((v) => {
             const item = v.item
