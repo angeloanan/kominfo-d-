@@ -50,7 +50,7 @@ const allWebsitesCombined = [
  * @param url URL of websites to have their protocol appended
  */
 const appendUrlProtocol = (url: string): string =>
-  url.toLowerCase().startsWith('http') ? url : `https://${url}`
+  url.toLowerCase().startsWith('http') ? url : `http://${url}`
 
 const handler: NextApiHandler = async (req, res) => {
   const sites: Record<string, boolean> = {}
