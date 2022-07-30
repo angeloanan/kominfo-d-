@@ -1,8 +1,10 @@
+import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import Link from 'next/link.js'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import useSWR from 'swr'
 
+import FullPSEData from '../../public/data.json'
 import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { ExplanationSection, ManualSearchSection, WhatIsThisSection } from '../modules'
@@ -23,12 +25,33 @@ const isWebsiteRegistered = (websiteData: PSEData[], findUrl: string) => {
   )
 }
 
-const IndexPage = () => {
-  const { data, error, isValidating } = useSWR<PSEData[]>('/data.json', fetcher, {
-    // 1 Hour refresh
-    refreshInterval: 60 * 60 * 1000,
-    revalidateOnFocus: false
+const allWebsitesCombined = [
+  devStarterPack,
+  idnStarterPack,
+  linuxStarterPack,
+  websiteListUSA
+].flat()
+
+interface IndexPageProps {
+  PSEData: Record<string, boolean>
+}
+
+export async function getStaticProps(
+  ctx: GetStaticPropsContext
+): Promise<GetStaticPropsResult<IndexPageProps>> {
+  const sites: Record<string, boolean> = {}
+
+  allWebsitesCombined.forEach((w) => {
+    sites[w.website] = isWebsiteRegistered(FullPSEData as PSEData[], w.website)
   })
+
+  return {
+    props: { PSEData: sites },
+    revalidate: 5 * 60
+  }
+}
+
+const IndexPage = ({ PSEData: data }: IndexPageProps) => {
   const {
     data: blockData,
     error: blockDataError,
@@ -62,12 +85,8 @@ const IndexPage = () => {
                 <WebsiteEntry
                   website={website.icon}
                   key={website.icon.title}
-                  loading={data == null || isValidating}
                   blocked={blockData?.[website.website] ?? false}
-                  registered={
-                    // TODO: Properly type this
-                    data != null && isWebsiteRegistered(data, website.website)
-                  }
+                  registered={data[website.website]}
                 />
               ))}
             </ul>
@@ -82,12 +101,8 @@ const IndexPage = () => {
                 <WebsiteEntry
                   website={website.icon}
                   key={website.icon.title}
-                  loading={data == null || isValidating}
                   blocked={blockData?.[website.website] ?? false}
-                  registered={
-                    // TODO: Properly type this
-                    data != null && isWebsiteRegistered(data, website.website)
-                  }
+                  registered={data[website.website]}
                 />
               ))}
             </ul>
@@ -114,12 +129,8 @@ const IndexPage = () => {
                 <WebsiteEntry
                   website={website.icon}
                   key={website.icon.title}
-                  loading={data == null || isValidating}
                   blocked={blockData?.[website.website] ?? false}
-                  registered={
-                    // TODO: Properly type this
-                    data != null && isWebsiteRegistered(data, website.website)
-                  }
+                  registered={data[website.website]}
                 />
               ))}
             </ul>
@@ -134,21 +145,14 @@ const IndexPage = () => {
                 <WebsiteEntry
                   website={website.icon}
                   key={website.icon.title}
-                  loading={data == null || isValidating}
                   blocked={blockData?.[website.website] ?? false}
-                  registered={
-                    // TODO: Properly type this
-                    data != null &&
-                    data?.filter((e: { attributes: { website: string } }) =>
-                      e.attributes.website.toLowerCase().startsWith(website.website)
-                    ).length > 0
-                  }
+                  registered={data[website.website]}
                 />
               ))}
             </div>
           </section>
 
-          <ManualSearchSection data={data} />
+          <ManualSearchSection />
 
           <footer className='mt-8 text-sm font-light'>
             <Link href='https://angeloanan.xyz' passHref>

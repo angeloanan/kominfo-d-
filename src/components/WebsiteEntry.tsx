@@ -7,8 +7,6 @@ interface WebsiteEntryProps {
    */
   website: Partial<SimpleIcon>
 
-  loading?: boolean
-
   /**
    * Registered in Goverment's list
    */
@@ -46,37 +44,10 @@ const LoadingSpinnerIcon = () => (
 
 export const WebsiteEntry = ({
   website,
-  loading = false,
   registered = false,
   blocked = false
 }: WebsiteEntryProps) => {
   const size = 32
-
-  // TODO: Refactor
-  if (loading) {
-    return (
-      <li className='flex items-center gap-2 rounded bg-neutral-100 p-4 outline outline-2 outline-neutral-300'>
-        <svg
-          height={size}
-          width={size}
-          fill='currentColor'
-          style={{ color: website.hex }}
-          aria-hidden
-        >
-          <title>{website.title}</title>
-          <path d={website.path} />
-        </svg>
-
-        <div>
-          <h3 className='font-semibold text-neutral-800'>{website.title}</h3>
-          <p className='flex gap-1'>
-            <LoadingSpinnerIcon />
-            Loading...
-          </p>
-        </div>
-      </li>
-    )
-  }
 
   return (
     <li
