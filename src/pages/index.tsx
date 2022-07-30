@@ -4,8 +4,10 @@ import { NextSeo } from 'next-seo'
 import * as React from 'react'
 
 import FullPSEData from '../../public/data.json'
+import { websiteSections } from '../_data/sections'
 import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
+import { fetchTrustPositif } from '../functions/fetchTrustPositif'
 import { ExplanationSection, ManualSearchSection, WhatIsThisSection } from '../modules'
 import type { PSEData } from '../types/PSEData'
 import { generateBlockList } from './api/fetchBlocked'
@@ -34,6 +36,7 @@ const allWebsitesCombined = [
 interface IndexPageProps {
   PSEData: Record<string, boolean>
   blockData: Record<string, boolean>
+  trustPositifData: Record<string, boolean>
 }
 
 export async function getStaticProps(
@@ -46,71 +49,15 @@ export async function getStaticProps(
   })
 
   const blockData = await generateBlockList()
+  const trustPositifData = await fetchTrustPositif()
 
   return {
-    props: { PSEData: sites, blockData },
+    props: { PSEData: sites, blockData, trustPositifData },
     revalidate: 5 * 60
   }
 }
 
-const sections = [
-  {
-    title: 'Indonesia Starterpack',
-    description: <p>Situs atau service ini terpopuler dengan orang Indonesia</p>,
-    sites: idnStarterPack
-  },
-  {
-    title: 'Essential Developer Toolkit',
-    description: <p>Service yang ✨ anak bangsa ✨ mungkin akan pakai saat membuat app</p>,
-    sites: devStarterPack
-  },
-  {
-    title: 'Top websites USA',
-    description: (
-      <>
-        <p>
-          2022 Top websites in the USA. Sumber data website diambil dari{' '}
-          <a
-            href='https://www.semrush.com/blog/most-visited-websites/'
-            className='text-blue-700 underline'
-            target='_blank'
-            rel='noreferrer'
-          >
-            semrush.com
-          </a>
-        </p>
-        <p>
-          <em>Catatan: Ada beberapa website ditiadakan karena tidak berhubungan</em>
-        </p>
-      </>
-    ),
-    sites: websiteListUSA
-  },
-  {
-    title: 'Linux Starterpack',
-    description: <p>Service yang sering dipakai Linux user 🐧</p>,
-    sites: linuxStarterPack
-  }
-]
-
-const IndexPage = ({ PSEData: data, blockData }: IndexPageProps) => {
-  const [trustPositifMap, setTrustPositifMap] = React.useState<Map<String, String>>(new Map())
-
-  React.useEffect(() => {
-    fetch('/api/trustPositif', {
-      method: 'POST',
-      body: new URLSearchParams({
-        name: allWebsitesCombined
-          .map((item) => item.website.replace(/(https?:\/\/)/, '').replace(/www\./, ''))
-          .join('\n')
-      })
-    })
-      .then((res) => res.json())
-      .then((res) =>
-        setTrustPositifMap(new Map(res.values.map((item: any) => [item.Domain, item.Status])))
-      )
-  }, [])
-
+const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProps) => {
   return (
     <>
       <NextSeo />
@@ -125,7 +72,7 @@ const IndexPage = ({ PSEData: data, blockData }: IndexPageProps) => {
 
           <ExplanationSection />
 
-          {sections.map((item) => (
+          {websiteSections.map((item) => (
             <section className='mt-8' key={item.title}>
               <h2 className='text-2xl font-semibold'>{item.title}</h2>
               <div>{item.description}</div>
@@ -135,9 +82,9 @@ const IndexPage = ({ PSEData: data, blockData }: IndexPageProps) => {
                     website={website.icon}
                     key={website.icon.title}
                     trustPositif={
-                      trustPositifMap.get(
+                      trustPositifData?.[
                         website.website.replace(/(https?:\/\/)/, '').replace(/www\./, '')
-                      ) === 'Ada'
+                      ] ?? false
                     }
                     indiWtf={blockData?.[website.website] ?? false}
                     registered={data[website.website]}
