@@ -154,7 +154,7 @@ export const devStarterPack = [
   { website: 'npmjs.com', icon: siNpm },
   { website: 'maven.apache.org', icon: siApachemaven },
   // Services
-  { website: 'firebase.google.com', icon: siFirebase },
+  { website: 'google.com', icon: siFirebase },
   { website: 'cloudflare.com', icon: siCloudflare },
   { website: 'google.com', icon: siGooglecloud },
   { website: 'aws.amazon.com', icon: siAmazonaws },
@@ -211,7 +211,7 @@ export const devStarterPack = [
   // Electronic Component Docs
   { website: 'components101.com', icon: components101Icon },
   // Email
-  { website: 'gmail.com', icon: siGmail },
+  { website: 'google.com', icon: siGmail },
   { website: 'zoho.com', icon: siZoho },
   { website: 'mailchimp.com', icon: siMailchimp },
   { website: 'twilio.com', icon: siTwilio },
@@ -255,10 +255,10 @@ export const idnStarterPack = [
   { website: 'www.lazada.co.id', icon: lazadaIcon },
   { website: 'traveloka.co.id', icon: travelokaIcon },
   { website: 'bca.co.id', icon: bcaIcon },
-  { website: 'classroom.google.com', icon: siGoogleclassroom },
-  { website: 'drive.google.com', icon: siGoogledrive },
+  { website: 'google.com', icon: siGoogleclassroom },
+  { website: 'google.com', icon: siGoogledrive },
   { website: 'brainly.co.id', icon: brainlyIcon },
-  { website: 'gmail.com', icon: siGmail },
+  { website: 'google.com', icon: siGmail },
   { website: 'netflix.com', icon: siNetflix },
   { website: 'hotstar.com', icon: hotstarIcon },
   { website: 'notion.com', icon: siNotion },

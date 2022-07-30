@@ -62,10 +62,16 @@ export const ExplanationSection = () => {
           href='https://tekno.kompas.com/read/2022/07/29/18150067/ini-sebab-google-indonesia-tidak-muncul-di-halaman-pse-kominfo-meski-sudah?page=all'
           passHref
         >
-          <a className='text-blue-800 underline'>Kompas.com</a>
+          <a className='text-blue-800 underline'>Kompas</a>
+        </Link>{' '}
+        dan{' '}
+        <Link
+          href='https://kumparan.com/kumparannews/kominfo-google-sudah-daftar-pse-secara-manual-1yYfG1DYqpl/full'
+          passHref
+        >
+          <a className='text-blue-800 underline'>Kumparan</a>
         </Link>
-        , Google Search, Play Store, YouTube dan Google Maps sudah terdaftar walau tidak muncul di
-        situs PSE.
+        , semua service Google sudah terdaftar walau tidak muncul di situs PSE.
       </p>
 
       <p className='mt-4 max-w-prose'>
