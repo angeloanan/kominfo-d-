@@ -69,6 +69,7 @@ import {
   siNintendo,
   siNotion,
   siNpm,
+  siComposer,
   siOvh,
   siPatreon,
   siPaypal,
@@ -110,7 +111,11 @@ import {
   siYahoo,
   siYoutube,
   siZoho,
-  siZoom
+  siZoom,
+  siMedium,
+  siKubernetes,
+  siDocker,
+  siDevdotto,
 } from 'simple-icons/icons'
 
 import {
@@ -152,7 +157,8 @@ export const devStarterPack = [
   // Libs
   { website: 'pypi.org', icon: siPypi },
   { website: 'npmjs.com', icon: siNpm },
-  { website: 'maven.apache.org', icon: siApachemaven },
+  { website: 'getcomposer.org', icon: siComposer },
+  { website: 'www.docker.com', icon: siDocker },
   // Services
   { website: 'google.com', icon: siFirebase },
   { website: 'cloudflare.com', icon: siCloudflare },
@@ -168,6 +174,7 @@ export const devStarterPack = [
   { website: 'cdn.jsdelivr.net', icon: siJsdelivr },
   { website: 'fastly.com', icon: siFastly },
   { website: 'algolia.com', icon: siAlgolia },
+  { website: 'kubernetes.io', icon: siKubernetes },
   // Game Engines
   { website: 'unity.com', icon: siUnity },
   { website: 'unrealengine.com', icon: siUnrealengine },
@@ -217,7 +224,10 @@ export const devStarterPack = [
   { website: 'twilio.com', icon: siTwilio },
   // Package Manager
   { website: 'community.chocolatey.org', icon: siChocolatey },
-  { website: 'us.archive.ubuntu.com', icon: ubuntuArchivesIcon }
+  { website: 'us.archive.ubuntu.com', icon: ubuntuArchivesIcon },
+  // Article
+  { website: 'medium.com', icon: siMedium },
+  { website: 'dev.to', icon: siDevdotto },
 ]
 
 // export const game = [
