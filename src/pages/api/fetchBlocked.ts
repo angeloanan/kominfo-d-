@@ -55,15 +55,27 @@ const appendUrlProtocol = (url: string): string =>
 const handler: NextApiHandler = async (req, res) => {
   const sites: Record<string, boolean> = {}
 
-  for await (const w of allWebsitesCombined) {
-    const url = w.website
-    const websiteStatus = await fetchIndiWtfStatus(appendUrlProtocol(url))
+  await Promise.all(
+    allWebsitesCombined.map(async (w) => {
+      const url = w.website
+      const websiteStatus = await fetchIndiWtfStatus(appendUrlProtocol(url))
 
-    // Sometimes, indi.wtf request times out.
-    if (websiteStatus != null) {
-      sites[url] = websiteStatus
-    }
-  }
+      // Sometimes, indi.wtf request times out.
+      if (websiteStatus != null) {
+        sites[url] = !websiteStatus
+      }
+    })
+  )
+
+  // for await (const w of allWebsitesCombined) {
+  //   const url = w.website
+  //   const websiteStatus = await fetchIndiWtfStatus(appendUrlProtocol(url))
+
+  //   // Sometimes, indi.wtf request times out.
+  //   if (websiteStatus != null) {
+  //     sites[url] = websiteStatus
+  //   }
+  // }
 
   console.log('Done fetching sites.')
   console.log(sites)

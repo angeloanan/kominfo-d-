@@ -29,6 +29,15 @@ const IndexPage = () => {
     refreshInterval: 60 * 60 * 1000,
     revalidateOnFocus: false
   })
+  const {
+    data: blockData,
+    error: blockDataError,
+    isValidating: blockDataIsValidating
+  } = useSWR<Record<string, boolean>>('/api/fetchBlocked', fetcher, {
+    // 1 Hour refresh
+    refreshInterval: 60 * 60 * 1000,
+    revalidateOnFocus: false
+  })
 
   return (
     <>
@@ -54,6 +63,7 @@ const IndexPage = () => {
                   website={website.icon}
                   key={website.icon.title}
                   loading={data == null || isValidating}
+                  blocked={blockData?.[website.website] ?? false}
                   registered={
                     // TODO: Properly type this
                     data != null && isWebsiteRegistered(data, website.website)
@@ -73,6 +83,7 @@ const IndexPage = () => {
                   website={website.icon}
                   key={website.icon.title}
                   loading={data == null || isValidating}
+                  blocked={blockData?.[website.website] ?? false}
                   registered={
                     // TODO: Properly type this
                     data != null && isWebsiteRegistered(data, website.website)
@@ -104,6 +115,7 @@ const IndexPage = () => {
                   website={website.icon}
                   key={website.icon.title}
                   loading={data == null || isValidating}
+                  blocked={blockData?.[website.website] ?? false}
                   registered={
                     // TODO: Properly type this
                     data != null && isWebsiteRegistered(data, website.website)
@@ -123,6 +135,7 @@ const IndexPage = () => {
                   website={website.icon}
                   key={website.icon.title}
                   loading={data == null || isValidating}
+                  blocked={blockData?.[website.website] ?? false}
                   registered={
                     // TODO: Properly type this
                     data != null &&
