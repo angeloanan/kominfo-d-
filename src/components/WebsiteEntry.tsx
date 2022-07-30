@@ -97,6 +97,11 @@ export const WebsiteEntry = ({
               <>
                 <HelpCircle aria-hidden />
                 Registered but inaccessible
+                {trustPositif && (
+                  <small data-tip data-for='blocked'>
+                    TP
+                  </small>
+                )}
               </>
             )
           ) : !blocked ? (
