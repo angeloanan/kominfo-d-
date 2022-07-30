@@ -178,7 +178,7 @@ export const devStarterPack = [
   // Microcontroller
   { website: 'arduino.cc', icon: siArduino },
   { website: 'adafruit.com', icon: siAdafruit },
-  { website: 'nodemcu.com', icon: nodeMCUIcon },
+  { website: 'www.nodemcu.com', icon: nodeMCUIcon },
   { website: 'st.com', icon: siStmicroelectronics },
   // SocMed
   { website: 'slack.com', icon: siSlack },
