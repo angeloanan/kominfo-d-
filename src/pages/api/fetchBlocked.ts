@@ -52,7 +52,7 @@ const allWebsitesCombined = [
 const appendUrlProtocol = (url: string): string =>
   url.toLowerCase().startsWith('http') ? url : `http://${url}`
 
-const handler: NextApiHandler = async (req, res) => {
+export const generateBlockList = async () => {
   const sites: Record<string, boolean> = {}
 
   await Promise.all(
@@ -67,6 +67,7 @@ const handler: NextApiHandler = async (req, res) => {
     })
   )
 
+  // // Alternatively, using for await of
   // for await (const w of allWebsitesCombined) {
   //   const url = w.website
   //   const websiteStatus = await fetchIndiWtfStatus(appendUrlProtocol(url))
@@ -77,12 +78,15 @@ const handler: NextApiHandler = async (req, res) => {
   //   }
   // }
 
-  console.log('Done fetching sites.')
-  console.log(sites)
+  return sites
+}
+
+const handler: NextApiHandler = async (req, res) => {
+  const blockList = generateBlockList()
 
   return res
     .setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=21600')
-    .json(sites)
+    .json(blockList)
 }
 
 export default handler

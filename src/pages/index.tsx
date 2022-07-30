@@ -2,15 +2,14 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import Link from 'next/link.js'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
-import useSWR from 'swr'
 
 import FullPSEData from '../../public/data.json'
 import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { ExplanationSection, ManualSearchSection, WhatIsThisSection } from '../modules'
 import type { PSEData } from '../types/PSEData'
+import { generateBlockList } from './api/fetchBlocked'
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json())
 const isWebsiteRegistered = (websiteData: PSEData[], findUrl: string) => {
   return websiteData.some((entry) =>
     // Return true if the url is found in the list of registered websites
@@ -34,6 +33,7 @@ const allWebsitesCombined = [
 
 interface IndexPageProps {
   PSEData: Record<string, boolean>
+  blockData: Record<string, boolean>
 }
 
 export async function getStaticProps(
@@ -45,23 +45,15 @@ export async function getStaticProps(
     sites[w.website] = isWebsiteRegistered(FullPSEData as PSEData[], w.website)
   })
 
+  const blockData = await generateBlockList()
+
   return {
-    props: { PSEData: sites },
+    props: { PSEData: sites, blockData },
     revalidate: 5 * 60
   }
 }
 
-const IndexPage = ({ PSEData: data }: IndexPageProps) => {
-  const {
-    data: blockData,
-    error: blockDataError,
-    isValidating: blockDataIsValidating
-  } = useSWR<Record<string, boolean>>('/api/fetchBlocked', fetcher, {
-    // 1 Hour refresh
-    refreshInterval: 60 * 60 * 1000,
-    revalidateOnFocus: false
-  })
-
+const IndexPage = ({ PSEData: data, blockData }: IndexPageProps) => {
   return (
     <>
       <NextSeo />
