@@ -43,6 +43,7 @@ import {
   siGoogledrive,
   siGooglemaps,
   siHackerrank,
+  siHeroku,
   siImdb,
   siImgur,
   siInstagram,
@@ -63,6 +64,7 @@ import {
   siMicrosoftazure,
   siMicrosoftoffice,
   siMicrosoftsharepoint,
+  siMicrosoftteams,
   siNetflix,
   siNetlify,
   siNewyorktimes,
@@ -91,6 +93,7 @@ import {
   siSteam,
   siStmicroelectronics,
   siSurveymonkey,
+  siSupabase,
   siTelegram,
   siTiktok,
   siTrello,
@@ -175,6 +178,8 @@ export const devStarterPack = [
   { website: 'fastly.com', icon: siFastly },
   { website: 'algolia.com', icon: siAlgolia },
   { website: 'kubernetes.io', icon: siKubernetes },
+  { website: 'heroku.com', icon: siHeroku },
+  { website: 'supabase.com', icon: siSupabase },
   // Game Engines
   { website: 'unity.com', icon: siUnity },
   { website: 'unrealengine.com', icon: siUnrealengine },
@@ -290,7 +295,8 @@ export const idnStarterPack = [
   { website: 'www.halodoc.com', icon: halodocIcon },
   { website: 'mediafire.com', icon: siMediafire },
   { website: 'www.vidio.com', icon: vidioComIcon },
-  { website: 'linktr.ee', icon: siLinktree }
+  { website: 'linktr.ee', icon: siLinktree },
+  { website: 'teams.com', icon: siMicrosoftteams }
   // { website: 'kemdikbud.go.id', icon: kemdikbudIcon },
   // { website: 'kominfo.go.id', icon: kominfoIcon },
   // { website: 'kemkes.go.id', icon: pedulilindungiIcon }
