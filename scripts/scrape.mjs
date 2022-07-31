@@ -8,16 +8,33 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
+const currentGeneratedAtData = JSON.parse(
+  await fs.readFile(join(__dirname, '..', 'public', 'generatedAt.json'), {
+    encoding: 'utf8'
+  })
+)
+const currentGeneratedAt = new Date(currentGeneratedAtData.generated_at)
+
 const generatedAtResponse = await fetch(
   'https://pse.kominfo.go.id/static/json-static/generationInfo.json'
 )
-const generatedAtData = await generatedAtResponse.json()
-const generatedAt = new Date(generatedAtData.data.generated_at)
-const currentTime = new Date()
-const isNeedToUpdateLocalData = generatedAt >= currentTime
+const generatedAtData = (await generatedAtResponse.json()).data
+const generatedAt = new Date(generatedAtData.generated_at)
+const isNeedToUpdateLocalData = generatedAt > currentGeneratedAt
 
-console.log(`PSE data last updated at: ${generatedAt} | Current time: ${currentTime}`)
+console.log(
+  `Kemkominfo last updated at : ${generatedAt} | Local data last updated at: ${currentGeneratedAt}`
+)
 console.log(`Is need to sync data? ${isNeedToUpdateLocalData}`)
+
+await fs.writeFile(
+  join(__dirname, '..', 'public', 'generatedAt.json'),
+  JSON.stringify(generatedAtData, null, 2),
+  {
+    encoding: 'utf8',
+    flag: 'w'
+  }
+)
 
 if (isNeedToUpdateLocalData) {
   const generateAsingApiPageNumber = (number = 0) => {
