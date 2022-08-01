@@ -4,8 +4,10 @@ import { NextSeo } from 'next-seo'
 import * as React from 'react'
 
 import FullPSEData from '../../public/data.json'
+import { websiteSections } from '../_data/sections'
 import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from '../_data/websites'
 import { WebsiteEntry } from '../components/WebsiteEntry'
+import { fetchTrustPositif } from '../functions/fetchTrustPositif'
 import { ExplanationSection, ManualSearchSection, WhatIsThisSection } from '../modules'
 import type { PSEData } from '../types/PSEData'
 import { generateBlockList } from './api/fetchBlocked'
@@ -34,6 +36,7 @@ const allWebsitesCombined = [
 interface IndexPageProps {
   PSEData: Record<string, boolean>
   blockData: Record<string, boolean>
+  trustPositifData: Record<string, boolean>
 }
 
 export async function getStaticProps(
@@ -46,18 +49,18 @@ export async function getStaticProps(
   })
 
   const blockData = await generateBlockList()
+  const trustPositifData = await fetchTrustPositif()
 
   return {
-    props: { PSEData: sites, blockData },
+    props: { PSEData: sites, blockData, trustPositifData },
     revalidate: 5 * 60
   }
 }
 
-const IndexPage = ({ PSEData: data, blockData }: IndexPageProps) => {
+const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProps) => {
   return (
     <>
       <NextSeo />
-
       <div className='flex w-full justify-center'>
         <div className='w-full max-w-screen-xl p-8'>
           <header className='flex w-full flex-col items-center'>
@@ -69,80 +72,27 @@ const IndexPage = ({ PSEData: data, blockData }: IndexPageProps) => {
 
           <ExplanationSection />
 
-          <section className='mt-8'>
-            <h2 className='text-2xl font-semibold'>Indonesia Starterpack</h2>
-            <p>Situs atau service ini terpopuler dengan orang Indonesia</p>
-            <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-              {idnStarterPack.map((website) => (
-                <WebsiteEntry
-                  website={website.icon}
-                  key={website.icon.title}
-                  blocked={blockData?.[website.website] ?? false}
-                  registered={data[website.website]}
-                />
-              ))}
-            </ul>
-          </section>
-
-          <section className='mt-8'>
-            <h2 className='text-2xl font-semibold'>Essential developer toolkit</h2>
-            <p>Service yang ✨ anak bangsa ✨ mungkin akan pakai saat membuat app</p>
-
-            <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-              {devStarterPack.map((website) => (
-                <WebsiteEntry
-                  website={website.icon}
-                  key={website.icon.title}
-                  blocked={blockData?.[website.website] ?? false}
-                  registered={data[website.website]}
-                />
-              ))}
-            </ul>
-          </section>
-
-          <section className='mt-8'>
-            <h2 className='text-2xl font-semibold'>Top websites USA</h2>
-            <p>
-              2022 Top websites in the USA. Sumber data website diambil dari{' '}
-              <a
-                href='https://www.semrush.com/blog/most-visited-websites/'
-                className='text-blue-700 underline'
-                target='_blank'
-                rel='noreferrer'
-              >
-                semrush.com
-              </a>
-            </p>
-            <p>
-              <em>Catatan: Ada beberapa website ditiadakan karena tidak berhubungan</em>
-            </p>
-            <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-              {websiteListUSA.map((website) => (
-                <WebsiteEntry
-                  website={website.icon}
-                  key={website.icon.title}
-                  blocked={blockData?.[website.website] ?? false}
-                  registered={data[website.website]}
-                />
-              ))}
-            </ul>
-          </section>
-
-          <section className='mt-8'>
-            <h2 className='text-2xl font-semibold'>Linux Starterpack</h2>
-            <p>Service yang sering dipakai Linux user 🐧</p>
-
-            <div className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-              {linuxStarterPack.map((website) => (
-                <WebsiteEntry
-                  website={website.icon}
-                  key={website.icon.title}
-                  blocked={blockData?.[website.website] ?? false}
-                  registered={data[website.website]}
-                />
-              ))}
-            </div>
-          </section>
+          {websiteSections.map((item) => (
+            <section className='mt-8' key={item.title}>
+              <h2 className='text-2xl font-semibold'>{item.title}</h2>
+              <div>{item.description}</div>
+              <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+                {item.sites.map((website) => (
+                  <WebsiteEntry
+                    website={website.icon}
+                    key={website.icon.title}
+                    trustPositif={
+                      trustPositifData?.[
+                        website.website.replace(/(https?:\/\/)/, '').replace(/www\./, '')
+                      ] ?? false
+                    }
+                    indiWtf={blockData?.[website.website] ?? false}
+                    registered={data[website.website]}
+                  />
+                ))}
+              </ul>
+            </section>
+          ))}
 
           <ManualSearchSection />
 

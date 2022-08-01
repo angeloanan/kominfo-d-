@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { AlertCircle, Check, HelpCircle, X } from 'react-feather'
 import { SimpleIcon } from 'simple-icons'
 
@@ -13,9 +14,14 @@ interface WebsiteEntryProps {
   registered?: boolean
 
   /**
+   * Blocked in Trust Positif's Network - Checked via https://trustpositif.kominfo.go.id
+   */
+  trustPositif?: boolean
+
+  /**
    * Blocked in Indihome's Network - Checked via https://indi.wtf
    */
-  blocked?: boolean
+  indiWtf?: boolean
 }
 
 const LoadingSpinnerIcon = () => (
@@ -45,9 +51,12 @@ const LoadingSpinnerIcon = () => (
 export const WebsiteEntry = ({
   website,
   registered = false,
-  blocked = false
+  indiWtf = false,
+  trustPositif = false
 }: WebsiteEntryProps) => {
   const size = 32
+
+  const blocked = indiWtf || trustPositif
 
   return (
     <li
@@ -88,6 +97,11 @@ export const WebsiteEntry = ({
               <>
                 <HelpCircle aria-hidden />
                 Registered but inaccessible
+                {trustPositif && (
+                  <small data-tip data-for='blocked'>
+                    TP
+                  </small>
+                )}
               </>
             )
           ) : !blocked ? (
@@ -96,7 +110,12 @@ export const WebsiteEntry = ({
             </>
           ) : (
             <>
-              <X aria-hidden /> Blocked
+              <X aria-hidden /> Blocked{' '}
+              {trustPositif && (
+                <small data-tip data-for='blocked'>
+                  TP
+                </small>
+              )}
             </>
           )}
         </p>
