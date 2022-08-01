@@ -63,8 +63,8 @@ export const ExplanationSection = () => {
       </p>
 
       <p className='mt-4 max-w-prose'>
-        Pemilik situs akan berusaha menyajikan data yang terbaru dan terakurat. Jika ada masalah,
-        dimohon untuk mengontak saya melalui link di footer!
+        Pemilik situs akan berusaha untuk menyajikan data yang terbaru dan terakurat. Jika ada
+        masalah, dimohon untuk mengontak saya melalui link di footer!
       </p>
 
       <p className='mt-4 max-w-prose'>
