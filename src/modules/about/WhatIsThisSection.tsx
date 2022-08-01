@@ -2,7 +2,7 @@ import Link from 'next/link.js'
 
 export const WhatIsThisSection = () => {
   return (
-    <section className='mt-16'>
+    <section>
       <h2 className='text-2xl font-semibold'>Confused on what this is?</h2>
       <p className='max-w-prose'>
         The Indonesian government is forcing &apos;online service providers&apos; to register their

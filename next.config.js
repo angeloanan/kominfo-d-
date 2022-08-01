@@ -21,6 +21,12 @@ const nextConfig = {
     responseLimit: false
   },
 
+  experimental: {
+    images: {
+      allowFutureImage: true
+    }
+  },
+
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp']

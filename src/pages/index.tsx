@@ -6,9 +6,12 @@ import * as React from 'react'
 import FullPSEData from '../../public/data.json'
 import { websiteSections } from '../_data/sections'
 import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from '../_data/websites'
+import { PageContent } from '../components/PageContent'
+import { SiteHeader } from '../components/SiteHeader'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { fetchTrustPositif } from '../functions/fetchTrustPositif'
-import { ExplanationSection, ManualSearchSection, WhatIsThisSection } from '../modules'
+import { ManualSearchSection } from '../modules'
+import { ExplanationSection, WhatIsThisSection } from '../modules/about'
 import type { PSEData } from '../types/PSEData'
 import { generateBlockList } from './api/fetchBlocked'
 
@@ -67,51 +70,47 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
   return (
     <>
       <NextSeo />
-      <div className='flex w-full justify-center'>
-        <div className='w-full max-w-screen-xl p-8'>
-          <header className='flex w-full flex-col items-center'>
-            <h1 className='text-5xl font-bold italic'>Kominfo&apos;d?</h1>
-            <span>Website ini bakal keblokir ga ya?</span>
-          </header>
+      <div className='flex flex-col bg-brand-bg-light'>
+        <SiteHeader />
+        <PageContent>
+          <div className='mx-auto w-full max-w-screen-sm'>
+            <div className='space-y-8'>
+              {websiteSections.map((item) => (
+                <section key={item.title}>
+                  <h2 className='text-2xl font-semibold'>{item.title}</h2>
+                  <div>{item.description}</div>
+                  <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2'>
+                    {item.sites.map((website) => (
+                      <WebsiteEntry
+                        website={website.icon}
+                        key={website.icon.title}
+                        trustPositif={
+                          trustPositifData?.[
+                            website.website.replace(/(https?:\/\/)/, '').replace(/www\./, '')
+                          ] ?? false
+                        }
+                        indiWtf={blockData?.[website.website] ?? false}
+                        registered={data[website.website]}
+                      />
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
 
-          <WhatIsThisSection />
+            <ManualSearchSection />
 
-          <ExplanationSection />
-
-          {websiteSections.map((item) => (
-            <section className='mt-8' key={item.title}>
-              <h2 className='text-2xl font-semibold'>{item.title}</h2>
-              <div>{item.description}</div>
-              <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-                {item.sites.map((website) => (
-                  <WebsiteEntry
-                    website={website.icon}
-                    key={website.icon.title}
-                    trustPositif={
-                      trustPositifData?.[
-                        website.website.replace(/(https?:\/\/)/, '').replace(/www\./, '')
-                      ] ?? false
-                    }
-                    indiWtf={blockData?.[website.website] ?? false}
-                    registered={data[website.website]}
-                  />
-                ))}
-              </ul>
-            </section>
-          ))}
-
-          <ManualSearchSection />
-
-          <footer className='mt-8 text-sm font-light'>
-            <Link href='https://angeloanan.xyz' passHref>
-              <a>
-                <div>Created with 🤨, 😠 and 😡 by Angelo!</div>
-                <div>Found any mistakes? Don&apos;t hesitate to contact me</div>
-                <div className='mt-2'>https://angeloanan.xyz | @AfterDarkAngelo</div>
-              </a>
-            </Link>
-          </footer>
-        </div>
+            <footer className='mt-8 text-sm font-light'>
+              <Link href='https://angeloanan.xyz' passHref>
+                <a>
+                  <div>Created with 🤨, 😠 and 😡 by Angelo!</div>
+                  <div>Found any mistakes? Don&apos;t hesitate to contact me</div>
+                  <div className='mt-2'>https://angeloanan.xyz | @AfterDarkAngelo</div>
+                </a>
+              </Link>
+            </footer>
+          </div>
+        </PageContent>
       </div>
     </>
   )

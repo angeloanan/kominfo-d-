@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const ExplanationSection = () => {
   return (
-    <section className='mt-8'>
+    <section>
       <h2 className='text-2xl font-semibold'>Bagaimana cara kerja situs ini?</h2>
 
       <p className='mt-2 max-w-prose'>
