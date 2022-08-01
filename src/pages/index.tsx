@@ -48,8 +48,10 @@ export async function getStaticProps(
     sites[w.website] = isWebsiteRegistered(FullPSEData as PSEData[], w.website)
   })
 
-  const blockData = await generateBlockList()
-  const trustPositifData = await fetchTrustPositif()
+  const [blockData, trustPositifData] = await Promise.all([
+    generateBlockList(),
+    fetchTrustPositif()
+  ])
 
   return {
     props: { PSEData: sites, blockData, trustPositifData },
