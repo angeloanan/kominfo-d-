@@ -184,7 +184,6 @@ export const devStarterPack = [
   { website: 'kubernetes.io', icon: siKubernetes },
   { website: 'heroku.com', icon: siHeroku },
   { website: 'supabase.com', icon: siSupabase },
-  { website: 'duolingo.com', icon: siDuolingo },
   // Game Engines
   { website: 'unity.com', icon: siUnity },
   { website: 'unrealengine.com', icon: siUnrealengine },
@@ -346,7 +345,8 @@ export const websiteListUSA = [
   { website: 'nypost.com', icon: siNewyorktimes },
   { website: 'sharepoint.com', icon: siMicrosoftsharepoint },
   { website: 'patreon.com', icon: siPatreon },
-  { website: 'surveymonkey.com', icon: siSurveymonkey }
+  { website: 'surveymonkey.com', icon: siSurveymonkey },
+  { website: 'duolingo.com', icon: siDuolingo }
 ]
 
 export const linuxStarterPack = [
