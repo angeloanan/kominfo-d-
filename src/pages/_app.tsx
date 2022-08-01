@@ -21,7 +21,7 @@ function CustomApp({ Component, pageProps }: CustomAppProps) {
     <>
       <DefaultSeo {...SEOConfig} />
 
-      <div className='stylized-bg min-h-screen'>
+      <div className='min-h-screen bg-brand-bg-light'>
         <Component {...pageProps} />
       </div>
 

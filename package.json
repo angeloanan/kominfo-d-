@@ -21,6 +21,7 @@
     "@icons-pack/react-simple-icons": "^5.2.0",
     "@next/bundle-analyzer": "^12.2.3",
     "autoprefixer": "^10.4.8",
+    "clsx": "^1.2.1",
     "fuse.js": "^6.6.2",
     "https": "^1.0.0",
     "next": "^12.2.4-canary.8",
