@@ -15,7 +15,7 @@ jobs:
           node-version: 18
 
       - name: Scrape data
-        run: yarn scrape
+        run: yarn script:scrape
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9

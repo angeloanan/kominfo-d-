@@ -13,7 +13,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "scrape": "node scripts/scrape.mjs"
+    "script:scrape": "node --experimental-fetch scripts/scrape.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.11",
