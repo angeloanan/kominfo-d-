@@ -73,13 +73,13 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
       <div className='flex flex-col bg-brand-bg-light'>
         <SiteHeader />
         <PageContent>
-          <div className='mx-auto w-full'>
+          <div className='mx-auto w-full max-w-screen-xl'>
             <div className='space-y-8'>
               {websiteSections.map((item) => (
                 <section key={item.title}>
                   <h2 className='text-2xl font-semibold'>{item.title}</h2>
                   <div>{item.description}</div>
-                  <ul className='mt-4 grid grid-flow-row grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                  <ul className='mt-4 grid max-w-screen-xl grid-flow-row grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                     {item.sites.map((website) => (
                       <WebsiteEntry
                         website={website.icon}

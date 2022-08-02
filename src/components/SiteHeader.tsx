@@ -6,7 +6,7 @@ import { KominfodLogo } from './KominfodLogo'
 export function SiteHeader() {
   return (
     <header className='flex h-[60px] w-full items-center bg-brand-bg px-4'>
-      <div className='mx-auto flex w-full items-center justify-between'>
+      <div className='mx-auto flex w-full max-w-screen-xl items-center justify-between'>
         <Link href='/'>
           <a>
             <span className='sr-only'>Kominfo&apos;d</span>
