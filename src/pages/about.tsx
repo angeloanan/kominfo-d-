@@ -1,7 +1,9 @@
+import { ArrowLeftIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
 
+import { Container } from '../components/Container'
 import { PageContent } from '../components/PageContent'
 import { SiteHeader } from '../components/SiteHeader'
 import { ExplanationSection, WhatIsThisSection } from '../modules/about'
@@ -13,8 +15,21 @@ export default function AboutPage() {
       <div className='flex flex-col bg-brand-bg-light'>
         <SiteHeader />
         <PageContent>
-          <div className='mx-auto w-full max-w-screen-sm'>
+          <Container prose>
             <div className='space-y-8'>
+              <Link href='/'>
+                <a className='group inline-flex items-center space-x-4 rounded-md focus:bg-brand-light-blue focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2 focus:ring-offset-brand-light-blue'>
+                  <div
+                    aria-hidden
+                    className='inline-flex items-center rounded-full border border-transparent bg-brand-blue p-1.5 text-white shadow-sm'
+                  >
+                    <ArrowLeftIcon className='h-5 w-5' />
+                  </div>
+                  <span className='font-medium text-brand-blue group-hover:underline'>
+                    Back to homepage
+                  </span>
+                </a>
+              </Link>
               <WhatIsThisSection />
               <ExplanationSection />
             </div>
@@ -28,7 +43,7 @@ export default function AboutPage() {
                 </a>
               </Link>
             </footer>
-          </div>
+          </Container>
         </PageContent>
       </div>
     </>

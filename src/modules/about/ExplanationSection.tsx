@@ -5,7 +5,7 @@ export const ExplanationSection = () => {
     <section>
       <h2 className='text-2xl font-semibold'>Bagaimana cara kerja situs ini?</h2>
 
-      <p className='mt-2 max-w-prose'>
+      <p className='mt-2'>
         Website ini mengambil data dari situs{' '}
         <Link href='https://pse.kominfo.go.id' passHref>
           <a className='text-blue-800 underline'>PSE Kominfo</a>
@@ -21,7 +21,7 @@ export const ExplanationSection = () => {
         ).
       </p>
 
-      <p className='mt-4 max-w-prose'>
+      <p className='mt-4'>
         Setiap situs yang match dengan database kami akan menampilkan status &quot;
         <em>Registered</em>
         &quot;. Jika tidak, maka akan menampilkan status &quot;<em>Unregistered</em>&quot;. Sesuai
@@ -36,7 +36,7 @@ export const ExplanationSection = () => {
         kepada services yang tidak terdaftar.
       </p>
 
-      <p className='mt-4 max-w-prose'>
+      <p className='mt-4'>
         Selain itu, semua situs dibawah akan diperiksa status terblokirnya menggunakan jaringan
         IndiHome, Sigma (courtesy of{' '}
         <Link href='https://indi.wtf' passHref>
@@ -50,13 +50,13 @@ export const ExplanationSection = () => {
         untuk melakukan pemblokiran.
       </p>
 
-      <p className='mt-4 max-w-prose'>
+      <p className='mt-4'>
         Jika situs tersebut diblokir dari jaringan IndiHome dan tidak terdaftar di situs PSE, maka
         status website akan berubah menjadi&nbsp;
         <em className='text-red-700'>BLOCKED</em>.
       </p>
 
-      <p className='mt-4 max-w-prose'>
+      <p className='mt-4'>
         Situs yang terdaftar pada sistem TrustPositif juga akan memiliki keterangan{' '}
         <small>TP</small> yang menandakan bahwa website terdaftar pada database pemblokiran resmi
         miliki Kominfo.
