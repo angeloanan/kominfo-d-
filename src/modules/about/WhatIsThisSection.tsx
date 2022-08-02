@@ -4,7 +4,7 @@ export const WhatIsThisSection = () => {
   return (
     <section>
       <h2 className='text-2xl font-semibold'>Confused on what this is?</h2>
-      <p className='max-w-prose'>
+      <p className='mt-2'>
         The Indonesian government is forcing &apos;online service providers&apos; to register their
         apps and services in their database. Failing to do so will cause them to be blocked.
       </p>

@@ -6,6 +6,7 @@ import * as React from 'react'
 import FullPSEData from '../../public/data.json'
 import { websiteSections } from '../_data/sections'
 import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from '../_data/websites'
+import { Container } from '../components/Container'
 import { PageContent } from '../components/PageContent'
 import { SiteHeader } from '../components/SiteHeader'
 import { WebsiteEntry } from '../components/WebsiteEntry'
@@ -72,7 +73,7 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
       <div className='flex flex-col bg-brand-bg-light'>
         <SiteHeader />
         <PageContent>
-          <div className='mx-auto w-full max-w-screen-xl'>
+          <Container>
             <div className='space-y-8'>
               <WelcomeMessageSection />
               {websiteSections.map((item) => (
@@ -109,7 +110,7 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
                 </a>
               </Link>
             </footer>
-          </div>
+          </Container>
         </PageContent>
       </div>
     </>
