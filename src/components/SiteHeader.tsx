@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import * as React from 'react'
 
 import { HelpCircleIcon } from './HelpCircleIcon'
 import { KominfodLogo } from './KominfodLogo'
@@ -15,7 +16,7 @@ export function SiteHeader() {
         </Link>
         <Link href='/about'>
           <a>
-            <span className='sr-only'>Confused on what this is?</span>
+            <span className='sr-only'>About</span>
             <HelpCircleIcon className='h-6 w-6 text-brand-text-grey' aria-hidden />
           </a>
         </Link>
