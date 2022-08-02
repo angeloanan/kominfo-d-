@@ -1,13 +1,6 @@
 import https from 'https'
 
-import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from '../_data/websites'
-
-const allWebsitesCombined = [
-  devStarterPack,
-  idnStarterPack,
-  linuxStarterPack,
-  websiteListUSA
-].flat()
+import { websites } from '../_data/websites'
 
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false
@@ -15,9 +8,8 @@ const httpsAgent = new https.Agent({
 
 export const fetchTrustPositif = async () => {
   try {
-    const requestChunks = Array.from(
-      { length: Math.ceil(allWebsitesCombined.length / 100) },
-      (_, i) => allWebsitesCombined.slice(i * 100, i * 100 + 100)
+    const requestChunks = Array.from({ length: Math.ceil(websites.length / 100) }, (_, i) =>
+      websites.slice(i * 100, i * 100 + 100)
     )
 
     const requests: Promise<Record<string, boolean>>[] = []
