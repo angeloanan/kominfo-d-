@@ -73,7 +73,7 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
       <div className='flex flex-col bg-brand-bg-light'>
         <SiteHeader />
         <PageContent>
-          <div className='mx-auto w-full'>
+          <div className='mx-auto w-full max-w-screen-xl'>
             <div className='space-y-8'>
               {websiteSections.map((item) => (
                 <section key={item.title}>
