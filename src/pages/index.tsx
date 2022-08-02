@@ -10,8 +10,7 @@ import { PageContent } from '../components/PageContent'
 import { SiteHeader } from '../components/SiteHeader'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { fetchTrustPositif } from '../functions/fetchTrustPositif'
-import { ManualSearchSection } from '../modules'
-import { ExplanationSection, WhatIsThisSection } from '../modules/about'
+import { ManualSearchSection, WelcomeMessageSection } from '../modules/home'
 import type { PSEData } from '../types/PSEData'
 import { generateBlockList } from './api/fetchBlocked'
 
@@ -75,6 +74,7 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
         <PageContent>
           <div className='mx-auto w-full max-w-screen-sm'>
             <div className='space-y-8'>
+              <WelcomeMessageSection />
               {websiteSections.map((item) => (
                 <section key={item.title}>
                   <h2 className='text-2xl font-semibold'>{item.title}</h2>

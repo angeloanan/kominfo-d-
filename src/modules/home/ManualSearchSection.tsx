@@ -2,8 +2,8 @@ import type Fuse from 'fuse.js'
 import Link from 'next/link'
 import * as React from 'react'
 
-import { useDebounce } from '../hooks/useDebounce'
-import type { PSEData } from '../types/PSEData'
+import { useDebounce } from '../../hooks/useDebounce'
+import type { PSEData } from '../../types/PSEData'
 
 export const ManualSearchSection = () => {
   // TODO: This shit's ugly - Research a better way
