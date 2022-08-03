@@ -8,6 +8,7 @@ import { categories, CategoryInterface } from '../_data/categories'
 import { WebsiteInterface, websites } from '../_data/websites'
 import { Container } from '../components/Container'
 import { PageContent } from '../components/PageContent'
+import { SearchBox } from '../components/SearchBox'
 import { SiteHeader } from '../components/SiteHeader'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { fetchTrustPositif } from '../functions/fetchTrustPositif'
@@ -76,12 +77,16 @@ export async function getStaticProps(
 }
 
 const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProps) => {
-  const selectedCategories: CategoryInterface[] = [categories[0]]
-  const [varSelectedCategories, setSelectedCategories] = React.useState(selectedCategories)
+  const [selectedCategories, setSelectedCategories] = React.useState([categories[0]])
+  const [searchString, setSearchString] = React.useState('')
   const dedupedWebsites = new Array<string>()
-  const eventTest = (cat: CategoryInterface[]) => {
+  const categoryButtonEventHandler = (cat: CategoryInterface[]) => {
     setSelectedCategories([...cat])
   }
+  const searchQueryEventHandler = (event: React.ChangeEvent) => {
+    setSearchString((event.target as HTMLInputElement).value)
+  }
+
   return (
     <>
       <NextSeo />
@@ -91,17 +96,20 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
           <Container>
             <div className='space-y-8'>
               <WelcomeMessageSection />
+              <SearchBox searchQuery={searchString} onSearchQuery={searchQueryEventHandler} />
               <CategoryButtonSection
-                selectedCategories={varSelectedCategories}
-                onCategoryButtonClick={(cat: CategoryInterface[]) => eventTest(cat)}
+                selectedCategories={selectedCategories}
+                onCategoryButtonClick={(cat: CategoryInterface[]) =>
+                  categoryButtonEventHandler(cat)
+                }
               />
-              {varSelectedCategories.map((item, index) => {
+              {selectedCategories.map((item, index) => {
                 // TODO: Find better alternative how to show websites
                 //       with multiple categories
                 const categoryHeader =
                   index === 0 ? (
                     <>
-                      <h2 className='text-2xl font-semibold'>{varSelectedCategories[0].name}</h2>
+                      <h2 className='text-2xl font-semibold'>{selectedCategories[0].name}</h2>
                       <div>deskripsi</div>
                     </>
                   ) : (
@@ -114,8 +122,13 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
                       {websites
                         .filter(
                           (w) =>
-                            filterCategoryAll(w, varSelectedCategories) &&
-                            dedupedWebsites.filter((dd) => dd === w.website).length === 0
+                            filterCategoryAll(w, selectedCategories) &&
+                            dedupedWebsites.filter((dd) => dd === w.website).length === 0 &&
+                            (searchString.length > 0
+                              ? (w.icon.title ?? '')
+                                  .toLowerCase()
+                                  .indexOf(searchString.toLowerCase()) >= 0
+                              : true)
                         )
                         .map((website) => {
                           dedupedWebsites.push(website.website)
