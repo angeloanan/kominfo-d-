@@ -80,7 +80,6 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
   const dedupedWebsites = new Array<string>()
   const eventTest = (cat: CategoryInterface[]) => {
     setSelectedCategories([...cat])
-    console.log(cat.map((val) => val.name))
   }
   return (
     <>
@@ -115,7 +114,7 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
                         .filter(
                           (w) =>
                             filterCategoryAll(w, varSelectedCategories) &&
-                            dedupedWebsites.filter((dd) => dd !== w.website).length === 0
+                            dedupedWebsites.filter((dd) => dd === w.website).length === 0
                         )
                         .map((website) => {
                           dedupedWebsites.push(website.website)
