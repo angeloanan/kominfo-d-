@@ -1,4 +1,4 @@
-import '@fontsource/inter/variable.css'
+import '@fontsource/plus-jakarta-sans/variable.css'
 import '../style/globals.css'
 
 import type { NextPage } from 'next'

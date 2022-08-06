@@ -16,11 +16,12 @@
     "script:scrape": "node --experimental-fetch scripts/scrape.mjs"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.11",
+    "@fontsource/plus-jakarta-sans": "^4.5.8",
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
     "@icons-pack/react-simple-icons": "^5.2.0",
     "@next/bundle-analyzer": "^12.2.3",
+    "@tailwindcss/forms": "^0.5.2",
     "autoprefixer": "^10.4.8",
     "clsx": "^1.2.1",
     "fuse.js": "^6.6.2",
