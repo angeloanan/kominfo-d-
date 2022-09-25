@@ -11,6 +11,7 @@ import {
   siArduino,
   siAtlassian,
   siAutodesk,
+  siBattledotnet,
   siBitbucket,
   siBlender,
   siBlogger,
@@ -28,6 +29,7 @@ import {
   siDiscord,
   siDocker,
   siDuckduckgo,
+  siDuolingo,
   siEa,
   siEpicgames,
   siFacebook,
@@ -76,6 +78,7 @@ import {
   siNintendo,
   siNotion,
   siNpm,
+  siNuget,
   siOvh,
   siPatreon,
   siPaypal,
@@ -162,6 +165,7 @@ export const devStarterPack = [
   { website: 'npmjs.com', icon: siNpm },
   { website: 'getcomposer.org', icon: siComposer },
   { website: 'www.docker.com', icon: siDocker },
+  { website: 'nuget.org', icon: siNuget },
   // Services
   { website: 'google.com', icon: siFirebase },
   { website: 'cloudflare.com', icon: siCloudflare },
@@ -286,6 +290,7 @@ export const idnStarterPack = [
   { website: 'epicgames.com', icon: siEpicgames },
   { website: 'nintendo.com', icon: siNintendo },
   { website: 'steampowered.com', icon: siSteam },
+  { website: 'battle.net', icon: siBattledotnet },
   { website: 'ubisoft.com', icon: siUbisoft },
   { website: 'play.google.com/store/apps/details?id=com.mobile.legends', icon: mobileLegendsIcon },
   { website: 'linkedin.com', icon: siLinkedin },
@@ -340,7 +345,8 @@ export const websiteListUSA = [
   { website: 'nypost.com', icon: siNewyorktimes },
   { website: 'sharepoint.com', icon: siMicrosoftsharepoint },
   { website: 'patreon.com', icon: siPatreon },
-  { website: 'surveymonkey.com', icon: siSurveymonkey }
+  { website: 'surveymonkey.com', icon: siSurveymonkey },
+  { website: 'duolingo.com', icon: siDuolingo }
 ]
 
 export const linuxStarterPack = [
