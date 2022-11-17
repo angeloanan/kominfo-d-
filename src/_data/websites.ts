@@ -152,202 +152,302 @@ export interface WebsiteData {
   icon: SimpleIcon
 }
 
-export const devStarterPack = [
+export interface WebsiteInterface {
+  website: string
+  icon: Partial<SimpleIcon>
+  categories: Array<string>
+}
+
+export const websites = [
+  { website: 'line.me', icon: siLine, categories: ['idnStarterPack', 'social'] },
+  {
+    website: 'web.whatsapp.com',
+    icon: siWhatsapp,
+    categories: ['idnStarterPack', 'social', 'topWebUSA']
+  },
+  { website: 'www.ovo.id', icon: ovoIcon, categories: ['idnStarterPack', 'finance'] },
+  {
+    website: 'tiktok.com',
+    icon: siTiktok,
+    categories: ['idnStarterPack', 'social', 'entertainment', 'topWebUSA']
+  },
+  { website: 'google.com', icon: siGoogle, categories: ['idnStarterPack', 'search', 'topWebUSA'] },
+  {
+    website: 'facebook.com',
+    icon: siFacebook,
+    categories: ['idnStarterPack', 'social', 'topWebUSA']
+  },
+  {
+    website: 'twitter.com',
+    icon: siTwitter,
+    categories: ['idnStarterPack', 'social', 'topWebUSA']
+  },
+  {
+    website: 'instagram.com',
+    icon: siInstagram,
+    categories: ['idnStarterPack', 'social', 'topWebUSA']
+  },
+  { website: 'messenger.com', icon: siMessenger, categories: ['idnStarterPack', 'social'] },
+  {
+    website: 'wikipedia.org',
+    icon: siWikipedia,
+    categories: ['idnStarterPack', 'education', 'topWebUSA']
+  },
+  { website: 'gojek.com', icon: gojekIcon, categories: ['idnStarterPack', 'finance'] },
+  { website: 'dana.id', icon: danaIcon, categories: ['idnStarterPack', 'finance'] },
+  {
+    website: 'web.telegram.org',
+    icon: siTelegram,
+    categories: ['idnStarterPack', 'social', 'career']
+  },
+  { website: 'spotify.com', icon: siSpotify, categories: ['idnStarterPack', 'entertainment'] },
+  { website: 'deezer.com', icon: siDeezer, categories: ['idnStarterPack', 'entertainment'] },
+  { website: 'www.telkomsel.com', icon: telkomselIcon, categories: ['idnStarterPack', 'finance'] },
+  { website: 'google.com', icon: siGooglemaps, categories: ['idnStarterPack'] },
+  { website: 'waze.com', icon: siWaze, categories: ['idnStarterPack', 'social'] },
+  { website: 'tokopedia.com', icon: tokopediaIcon, categories: ['idnStarterPack', 'ecommerce'] },
+  { website: 'shopee.co.id', icon: shopeeIcon, categories: ['idnStarterPack', 'ecommerce'] },
+  { website: 'www.lazada.co.id', icon: lazadaIcon, categories: ['idnStarterPack', 'ecommerce'] },
+  { website: 'traveloka.co.id', icon: travelokaIcon, categories: ['idnStarterPack'] },
+  { website: 'bca.co.id', icon: bcaIcon, categories: ['idnStarterPack', 'finance'] },
+  { website: 'google.com', icon: siGoogleclassroom, categories: ['idnStarterPack', 'education'] },
+  { website: 'google.com', icon: siGoogledrive, categories: ['idnStarterPack', 'education'] },
+  { website: 'brainly.co.id', icon: brainlyIcon, categories: ['idnStarterPack', 'education'] },
+  { website: 'google.com', icon: siGmail, categories: ['idnStarterPack', 'devStarterPack'] },
+  {
+    website: 'netflix.com',
+    icon: siNetflix,
+    categories: ['idnStarterPack', 'entertainment', 'topWebUSA']
+  },
+  { website: 'hotstar.com', icon: hotstarIcon, categories: ['idnStarterPack', 'entertainment'] },
+  {
+    website: 'notion.com',
+    icon: siNotion,
+    categories: ['idnStarterPack', 'development', 'education', 'topWebUSA']
+  },
+  {
+    website: 'pinterest.com',
+    icon: siPinterest,
+    categories: ['idnStarterPack', 'social', 'topWebUSA']
+  },
+  {
+    website: 'soundcloud.com',
+    icon: siSoundcloud,
+    categories: ['idnStarterPack', 'social', 'entertainment']
+  },
+  { website: 'www.zenius.net', icon: zeniusIcon, categories: ['idnStarterPack', 'education'] },
+  {
+    website: 'paypal.com',
+    icon: siPaypal,
+    categories: ['idnStarterPack', 'finance', 'career', 'topWebUSA']
+  },
+  { website: '2secure.jenius.co.id', icon: jeniusIcon, categories: ['idnStarterPack', 'finance'] },
+  { website: 'ea.com', icon: siEa, categories: ['idnStarterPack', 'game'] },
+  { website: 'epicgames.com', icon: siEpicgames, categories: ['idnStarterPack', 'game'] },
+  { website: 'nintendo.com', icon: siNintendo, categories: ['idnStarterPack', 'game'] },
+  { website: 'steampowered.com', icon: siSteam, categories: ['idnStarterPack', 'game'] },
+  { website: 'ubisoft.com', icon: siUbisoft, categories: ['idnStarterPack', 'game'] },
+  {
+    website: 'play.google.com/store/apps/details?id=com.mobile.legends',
+    icon: mobileLegendsIcon,
+    categories: ['idnStarterPack']
+  },
+  {
+    website: 'linkedin.com',
+    icon: siLinkedin,
+    categories: ['idnStarterPack', 'social', 'development', 'career', 'topWebUSA']
+  },
+  { website: 'www.alodokter.com', icon: alodokterIcon, categories: ['idnStarterPack', 'health'] },
+  { website: 'mangaku.com', icon: mangakuIcon, categories: ['idnStarterPack', 'entertainment'] },
+  { website: 'roblox.com', icon: siRoblox, categories: ['idnStarterPack', 'game', 'topWebUSA'] },
+  { website: 'www.halodoc.com', icon: halodocIcon, categories: ['idnStarterPack', 'health'] },
+  { website: 'mediafire.com', icon: siMediafire, categories: ['idnStarterPack'] },
+  { website: 'www.vidio.com', icon: vidioComIcon, categories: ['idnStarterPack', 'entertainment'] },
+  { website: 'linktr.ee', icon: siLinktree, categories: ['idnStarterPack'] },
+  { website: 'teams.com', icon: siMicrosoftteams, categories: ['idnStarterPack'] },
   // Code storage
-  { website: 'github.com', icon: siGithub },
-  { website: 'gitlab.com', icon: siGitlab },
-  { website: 'bitbucket.org', icon: siBitbucket },
+  {
+    website: 'github.com',
+    icon: siGithub,
+    categories: ['devStarterPack', 'development', 'topWebUSA']
+  },
+  { website: 'gitlab.com', icon: siGitlab, categories: ['devStarterPack', 'development'] },
+  { website: 'bitbucket.org', icon: siBitbucket, categories: ['devStarterPack', 'development'] },
   // Libs
-  { website: 'pypi.org', icon: siPypi },
-  { website: 'npmjs.com', icon: siNpm },
-  { website: 'getcomposer.org', icon: siComposer },
-  { website: 'www.docker.com', icon: siDocker },
+  { website: 'pypi.org', icon: siPypi, categories: ['devStarterPack', 'development'] },
+  { website: 'npmjs.com', icon: siNpm, categories: ['devStarterPack', 'development'] },
+  { website: 'getcomposer.org', icon: siComposer, categories: ['devStarterPack', 'development'] },
+  { website: 'www.docker.com', icon: siDocker, categories: ['devStarterPack', 'development'] },
   // Services
-  { website: 'google.com', icon: siFirebase },
-  { website: 'cloudflare.com', icon: siCloudflare },
-  { website: 'google.com', icon: siGooglecloud },
-  { website: 'aws.amazon.com', icon: siAmazonaws },
-  { website: 'azure.com', icon: siMicrosoftazure },
-  { website: 'vercel.com', icon: siVercel },
-  { website: 'netlify.com', icon: siNetlify },
-  { website: 'digitalocean.com', icon: siDigitalocean },
-  { website: 'vultr.com', icon: siVultr },
-  { website: 'linode.com', icon: siLinode },
-  { website: 'ovh.com', icon: siOvh },
-  { website: 'cdn.jsdelivr.net', icon: siJsdelivr },
-  { website: 'fastly.com', icon: siFastly },
-  { website: 'algolia.com', icon: siAlgolia },
-  { website: 'kubernetes.io', icon: siKubernetes },
-  { website: 'heroku.com', icon: siHeroku },
-  { website: 'supabase.com', icon: siSupabase },
+  { website: 'google.com', icon: siFirebase, categories: ['devStarterPack', 'development'] },
+  { website: 'cloudflare.com', icon: siCloudflare, categories: ['devStarterPack', 'development'] },
+  { website: 'google.com', icon: siGooglecloud, categories: ['devStarterPack', 'development'] },
+  { website: 'aws.amazon.com', icon: siAmazonaws, categories: ['devStarterPack', 'development'] },
+  { website: 'azure.com', icon: siMicrosoftazure, categories: ['devStarterPack', 'development'] },
+  { website: 'vercel.com', icon: siVercel, categories: ['devStarterPack', 'development'] },
+  { website: 'netlify.com', icon: siNetlify, categories: ['devStarterPack', 'development'] },
+  {
+    website: 'digitalocean.com',
+    icon: siDigitalocean,
+    categories: ['devStarterPack', 'development']
+  },
+  { website: 'vultr.com', icon: siVultr, categories: ['devStarterPack', 'development'] },
+  { website: 'linode.com', icon: siLinode, categories: ['devStarterPack', 'development'] },
+  { website: 'ovh.com', icon: siOvh, categories: ['devStarterPack', 'development'] },
+  { website: 'cdn.jsdelivr.net', icon: siJsdelivr, categories: ['devStarterPack', 'development'] },
+  { website: 'fastly.com', icon: siFastly, categories: ['devStarterPack', 'development'] },
+  { website: 'algolia.com', icon: siAlgolia, categories: ['devStarterPack', 'development'] },
+  { website: 'kubernetes.io', icon: siKubernetes, categories: ['devStarterPack', 'development'] },
+  { website: 'heroku.com', icon: siHeroku, categories: ['devStarterPack', 'development'] },
+  { website: 'supabase.com', icon: siSupabase, categories: ['devStarterPack', 'development'] },
   // Game Engines
-  { website: 'unity.com', icon: siUnity },
-  { website: 'unrealengine.com', icon: siUnrealengine },
-  { website: 'godotengine.org', icon: siGodotengine },
+  { website: 'unity.com', icon: siUnity, categories: ['devStarterPack', 'game', 'development'] },
+  {
+    website: 'unrealengine.com',
+    icon: siUnrealengine,
+    categories: ['devStarterPack', 'game', 'development']
+  },
+  {
+    website: 'godotengine.org',
+    icon: siGodotengine,
+    categories: ['devStarterPack', 'game', 'development']
+  },
   // 3D Modelling | Animation
-  { website: 'autodesk.com', icon: siAutodesk },
-  { website: 'blender.org', icon: siBlender },
+  { website: 'autodesk.com', icon: siAutodesk, categories: ['devStarterPack', 'development'] },
+  { website: 'blender.org', icon: siBlender, categories: ['devStarterPack', 'development'] },
   // Microcontroller
-  { website: 'arduino.cc', icon: siArduino },
-  { website: 'adafruit.com', icon: siAdafruit },
-  { website: 'www.nodemcu.com', icon: nodeMCUIcon },
-  { website: 'st.com', icon: siStmicroelectronics },
+  { website: 'arduino.cc', icon: siArduino, categories: ['devStarterPack', 'development'] },
+  {
+    website: 'adafruit.com',
+    icon: siAdafruit,
+    categories: ['devStarterPack', 'development', 'education', 'ecommerce']
+  },
+  { website: 'www.nodemcu.com', icon: nodeMCUIcon, categories: ['devStarterPack', 'development'] },
+  { website: 'st.com', icon: siStmicroelectronics, categories: ['devStarterPack', 'development'] },
   // SocMed
-  { website: 'slack.com', icon: siSlack },
-  { website: 'linkedin.com', icon: siLinkedin },
-  { website: 'polywork.com', icon: siPolywork },
-  { website: 'stackexchange.com', icon: siStackexchange },
-  { website: 'stackoverflow.com', icon: siStackoverflow },
-  { website: 'statuspage.io', icon: siStatuspage },
+  { website: 'slack.com', icon: siSlack, categories: ['devStarterPack', 'social', 'development'] },
+  {
+    website: 'polywork.com',
+    icon: siPolywork,
+    categories: ['devStarterPack', 'social', 'development', 'career']
+  },
+  {
+    website: 'stackexchange.com',
+    icon: siStackexchange,
+    categories: ['devStarterPack', 'social', 'development', 'education']
+  },
+  {
+    website: 'stackoverflow.com',
+    icon: siStackoverflow,
+    categories: ['devStarterPack', 'social', 'development', 'education', 'topWebUSA']
+  },
+  {
+    website: 'statuspage.io',
+    icon: siStatuspage,
+    categories: ['devStarterPack', 'social', 'development']
+  },
   // Coding Tutorials
-  { website: 'codecademy.com', icon: siCodecademy },
-  { website: 'freecodecamp.org', icon: siFreecodecamp },
-  { website: 'sololearn.com', icon: siSololearn },
-  { website: 'scratch.mit.edu', icon: siScratch },
-  { website: 'w3schools.com', icon: w3SchoolsIcon },
+  {
+    website: 'codecademy.com',
+    icon: siCodecademy,
+    categories: ['devStarterPack', 'development', 'education']
+  },
+  {
+    website: 'freecodecamp.org',
+    icon: siFreecodecamp,
+    categories: ['devStarterPack', 'development', 'education']
+  },
+  {
+    website: 'sololearn.com',
+    icon: siSololearn,
+    categories: ['devStarterPack', 'development', 'education']
+  },
+  {
+    website: 'scratch.mit.edu',
+    icon: siScratch,
+    categories: ['devStarterPack', 'development', 'education']
+  },
+  {
+    website: 'w3schools.com',
+    icon: w3SchoolsIcon,
+    categories: ['devStarterPack', 'development', 'education']
+  },
   // Competitive Programming/Training
-  { website: 'codingame.com', icon: siCodingame },
-  { website: 'hackerrank.com', icon: siHackerrank },
-  { website: 'leetcode.com', icon: siLeetcode },
+  { website: 'codingame.com', icon: siCodingame, categories: ['devStarterPack', 'development'] },
+  { website: 'hackerrank.com', icon: siHackerrank, categories: ['devStarterPack', 'development'] },
+  { website: 'leetcode.com', icon: siLeetcode, categories: ['devStarterPack', 'development'] },
   // Design
-  { website: 'figma.com', icon: siFigma },
-  { website: 'adobe.com', icon: siAdobe },
-  { website: 'codesandbox.io', icon: siCodesandbox },
+  { website: 'figma.com', icon: siFigma, categories: ['devStarterPack', 'development'] },
+  { website: 'adobe.com', icon: siAdobe, categories: ['devStarterPack', 'development'] },
+  { website: 'codesandbox.io', icon: siCodesandbox, categories: ['devStarterPack', 'development'] },
   // Docs
-  { website: 'notion.com', icon: siNotion },
-  { website: 'trello.com', icon: siTrello },
-  { website: 'atlassian.com', icon: siAtlassian },
-  { website: 'linear.org', icon: siLinear },
-  { website: 'devdocs.io', icon: devDocsIcon },
-  { website: 'readthedocs.org', icon: siReadthedocs },
+  { website: 'trello.com', icon: siTrello, categories: ['devStarterPack', 'development'] },
+  { website: 'atlassian.com', icon: siAtlassian, categories: ['devStarterPack', 'development'] },
+  { website: 'linear.org', icon: siLinear, categories: ['devStarterPack', 'development'] },
+  {
+    website: 'devdocs.io',
+    icon: devDocsIcon,
+    categories: ['devStarterPack', 'development', 'education']
+  },
+  {
+    website: 'readthedocs.org',
+    icon: siReadthedocs,
+    categories: ['devStarterPack', 'development', 'education']
+  },
   // Electronic Component Docs
-  { website: 'components101.com', icon: components101Icon },
+  {
+    website: 'components101.com',
+    icon: components101Icon,
+    categories: ['devStarterPack', 'development']
+  },
   // Email
-  { website: 'google.com', icon: siGmail },
-  { website: 'zoho.com', icon: siZoho },
-  { website: 'mailchimp.com', icon: siMailchimp },
-  { website: 'twilio.com', icon: siTwilio },
+  { website: 'zoho.com', icon: siZoho, categories: ['devStarterPack'] },
+  { website: 'mailchimp.com', icon: siMailchimp, categories: ['devStarterPack'] },
+  { website: 'twilio.com', icon: siTwilio, categories: ['devStarterPack'] },
   // Package Manager
-  { website: 'community.chocolatey.org', icon: siChocolatey },
-  { website: 'us.archive.ubuntu.com', icon: ubuntuArchivesIcon },
+  {
+    website: 'community.chocolatey.org',
+    icon: siChocolatey,
+    categories: ['devStarterPack', 'development']
+  },
+  {
+    website: 'us.archive.ubuntu.com',
+    icon: ubuntuArchivesIcon,
+    categories: ['devStarterPack', 'development']
+  },
   // Article
-  { website: 'medium.com', icon: siMedium },
-  { website: 'dev.to', icon: siDevdotto }
-]
+  { website: 'medium.com', icon: siMedium, categories: ['devStarterPack', 'development', 'news'] },
+  { website: 'dev.to', icon: siDevdotto, categories: ['devStarterPack', 'development', 'news'] },
 
-// export const game = [
-//   { website: 'pubg.com', icon: siPubg },
-//   { website: 'pubg.com', icon: siCrossfire },
-//   { website: 'roblox.com', icon: siRoblox },
-//   { website: 'ea.com', icon: siEa},
-//   { website: 'epicgames.com', icon: siEpicgames},
-//   { website: 'nintendo.com', icon: siNintendo},
-//   { website: 'ubisoft.com', icon: siUbisoft}
-//   { website: 'steampowered.com', icon: siSteam },
-// ]
+  { website: 'google.com', icon: siYoutube, categories: ['topWebUSA', 'entertainment'] },
+  { website: 'amazon.com', icon: siAmazon, categories: ['topWebUSA', 'ecommerce'] },
+  { website: 'apps.apple.com', icon: siAppstore, categories: ['topWebUSA'] },
+  { website: 'reddit.com', icon: siReddit, categories: ['topWebUSA', 'social'] },
+  { website: 'yahoo.com', icon: siYahoo, categories: ['topWebUSA'] },
+  { website: 'discord.com', icon: siDiscord, categories: ['topWebUSA', 'social'] },
+  { website: 'twitch.tv', icon: siTwitch, categories: ['topWebUSA', 'social', 'entertainment'] },
+  { website: 'zoom.us', icon: siZoom, categories: ['topWebUSA', 'education'] },
+  { website: 'duckduckgo.com', icon: siDuckduckgo, categories: ['topWebUSA', 'search'] },
+  { website: 'fandom.com', icon: siFandom, categories: ['topWebUSA'] },
+  { website: 'quora.com', icon: siQuora, categories: ['topWebUSA', 'social', 'education'] },
+  { website: 'imdb.com', icon: siImdb, categories: ['topWebUSA', 'entertainment'] },
+  { website: 'cnnindonesia.com', icon: siCnn, categories: ['topWebUSA'] },
+  { website: 'office.com', icon: siMicrosoftoffice, categories: ['topWebUSA'] },
+  { website: 'microsoft.com', icon: siMicrosoft, categories: ['topWebUSA'] },
+  { website: 'imgur.com', icon: siImgur, categories: ['topWebUSA', 'entertainment'] },
+  { website: 'tumblr.com', icon: siTumblr, categories: ['topWebUSA', 'social', 'entertainment'] },
+  { website: 'wordpress.com', icon: siWordpress, categories: ['topWebUSA', 'news'] },
+  { website: 'blogspot.com', icon: siBlogger, categories: ['topWebUSA', 'news'] },
+  { website: 'adobe.com', icon: siAdobe, categories: ['topWebUSA'] },
+  { website: 'nypost.com', icon: siNewyorktimes, categories: ['topWebUSA', 'news'] },
+  { website: 'sharepoint.com', icon: siMicrosoftsharepoint, categories: ['topWebUSA'] },
+  { website: 'patreon.com', icon: siPatreon, categories: ['topWebUSA', 'finance'] },
+  { website: 'surveymonkey.com', icon: siSurveymonkey, categories: ['topWebUSA'] },
 
-export const idnStarterPack = [
-  { website: 'line.me', icon: siLine },
-  { website: 'web.whatsapp.com', icon: siWhatsapp },
-  { website: 'www.ovo.id', icon: ovoIcon },
-  { website: 'tiktok.com', icon: siTiktok },
-  { website: 'google.com', icon: siGoogle },
-  { website: 'facebook.com', icon: siFacebook },
-  { website: 'twitter.com', icon: siTwitter },
-  { website: 'instagram.com', icon: siInstagram },
-  { website: 'messenger.com', icon: siMessenger },
-  { website: 'wikipedia.org', icon: siWikipedia },
-  { website: 'gojek.com', icon: gojekIcon },
-  { website: 'dana.id', icon: danaIcon },
-  { website: 'web.telegram.org', icon: siTelegram },
-  { website: 'spotify.com', icon: siSpotify },
-  { website: 'deezer.com', icon: siDeezer },
-  { website: 'www.telkomsel.com', icon: telkomselIcon },
-  { website: 'google.com', icon: siGooglemaps },
-  { website: 'waze.com', icon: siWaze },
-  { website: 'tokopedia.com', icon: tokopediaIcon },
-  { website: 'shopee.co.id', icon: shopeeIcon },
-  { website: 'www.lazada.co.id', icon: lazadaIcon },
-  { website: 'traveloka.co.id', icon: travelokaIcon },
-  { website: 'bca.co.id', icon: bcaIcon },
-  { website: 'google.com', icon: siGoogleclassroom },
-  { website: 'google.com', icon: siGoogledrive },
-  { website: 'brainly.co.id', icon: brainlyIcon },
-  { website: 'google.com', icon: siGmail },
-  { website: 'netflix.com', icon: siNetflix },
-  { website: 'hotstar.com', icon: hotstarIcon },
-  { website: 'notion.com', icon: siNotion },
-  { website: 'pinterest.com', icon: siPinterest },
-  { website: 'soundcloud.com', icon: siSoundcloud },
-  { website: 'www.zenius.net', icon: zeniusIcon },
-  { website: 'paypal.com', icon: siPaypal },
-  { website: '2secure.jenius.co.id', icon: jeniusIcon },
-  { website: 'ea.com', icon: siEa },
-  { website: 'epicgames.com', icon: siEpicgames },
-  { website: 'nintendo.com', icon: siNintendo },
-  { website: 'steampowered.com', icon: siSteam },
-  { website: 'ubisoft.com', icon: siUbisoft },
-  { website: 'play.google.com/store/apps/details?id=com.mobile.legends', icon: mobileLegendsIcon },
-  { website: 'linkedin.com', icon: siLinkedin },
-  { website: 'www.alodokter.com', icon: alodokterIcon },
-  { website: 'mangaku.com', icon: mangakuIcon },
-  { website: 'roblox.com', icon: siRoblox },
-  { website: 'www.halodoc.com', icon: halodocIcon },
-  { website: 'mediafire.com', icon: siMediafire },
-  { website: 'www.vidio.com', icon: vidioComIcon },
-  { website: 'linktr.ee', icon: siLinktree },
-  { website: 'teams.com', icon: siMicrosoftteams }
-  // { website: 'kemdikbud.go.id', icon: kemdikbudIcon },
-  // { website: 'kominfo.go.id', icon: kominfoIcon },
-  // { website: 'kemkes.go.id', icon: pedulilindungiIcon }
-]
-
-export const websiteListUSA = [
-  { website: 'google.com', icon: siGoogle },
-  { website: 'google.com', icon: siYoutube },
-  { website: 'facebook.com', icon: siFacebook },
-  { website: 'amazon.com', icon: siAmazon },
-  { website: 'apps.apple.com', icon: siAppstore },
-  { website: 'reddit.com', icon: siReddit },
-  { website: 'wikipedia.org', icon: siWikipedia },
-  { website: 'yahoo.com', icon: siYahoo },
-  { website: 'twitter.com', icon: siTwitter },
-  { website: 'instagram.com', icon: siInstagram },
-  { website: 'web.whatsapp.com', icon: siWhatsapp },
-  { website: 'discord.com', icon: siDiscord },
-  { website: 'twitch.tv', icon: siTwitch },
-  { website: 'zoom.us', icon: siZoom },
-  { website: 'roblox.com', icon: siRoblox },
-  { website: 'duckduckgo.com', icon: siDuckduckgo },
-  { website: 'paypal.com', icon: siPaypal },
-  { website: 'fandom.com', icon: siFandom },
-  { website: 'linkedin.com', icon: siLinkedin },
-  { website: 'quora.com', icon: siQuora },
-  { website: 'imdb.com', icon: siImdb },
-  { website: 'cnnindonesia.com', icon: siCnn },
-  { website: 'tiktok.com', icon: siTiktok },
-  { website: 'office.com', icon: siMicrosoftoffice },
-  { website: 'microsoft.com', icon: siMicrosoft },
-  { website: 'netflix.com', icon: siNetflix },
-  { website: 'pinterest.com', icon: siPinterest },
-  { website: 'imgur.com', icon: siImgur },
-  { website: 'tumblr.com', icon: siTumblr },
-  { website: 'github.com', icon: siGithub },
-  { website: 'stackoverflow.com', icon: siStackoverflow },
-  { website: 'wordpress.com', icon: siWordpress },
-  { website: 'blogspot.com', icon: siBlogger },
-  { website: 'adobe.com', icon: siAdobe },
-  { website: 'nypost.com', icon: siNewyorktimes },
-  { website: 'sharepoint.com', icon: siMicrosoftsharepoint },
-  { website: 'patreon.com', icon: siPatreon },
-  { website: 'surveymonkey.com', icon: siSurveymonkey }
-]
-
-export const linuxStarterPack = [
-  { website: 'archlinux.org', icon: siArchlinux },
-  { website: 'debian.org', icon: siDebian },
-  { website: 'kali.org', icon: siKalilinux },
-  { website: 'linux.org', icon: siLinux },
-  { website: 'ubuntu.com', icon: siUbuntu },
-  { website: 'us.archive.ubuntu.com', icon: ubuntuArchivesIcon }
+  { website: 'archlinux.org', icon: siArchlinux, categories: ['linuxStarterPack'] },
+  { website: 'debian.org', icon: siDebian, categories: ['linuxStarterPack'] },
+  { website: 'kali.org', icon: siKalilinux, categories: ['linuxStarterPack'] },
+  { website: 'linux.org', icon: siLinux, categories: ['linuxStarterPack'] },
+  { website: 'ubuntu.com', icon: siUbuntu, categories: ['linuxStarterPack'] },
+  { website: 'us.archive.ubuntu.com', icon: ubuntuArchivesIcon, categories: ['linuxStarterPack'] }
 ]

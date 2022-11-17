@@ -1,11 +1,6 @@
 import { NextApiHandler } from 'next'
 
-import {
-  devStarterPack,
-  idnStarterPack,
-  linuxStarterPack,
-  websiteListUSA
-} from '../../_data/websites'
+import { websites } from '../../_data/websites'
 import type { IndiWTFResponse } from '../../types/IndiWTFResponse'
 
 const USER_AGENT =
@@ -38,13 +33,6 @@ const fetchIndiWtfStatus = async (url: string): Promise<boolean> => {
   }
 }
 
-const allWebsitesCombined = [
-  devStarterPack,
-  idnStarterPack,
-  linuxStarterPack,
-  websiteListUSA
-].flat()
-
 /**
  * Appends the protocol of the url (https://) if it is missing.
  * @param url URL of websites to have their protocol appended
@@ -56,7 +44,7 @@ export const generateBlockList = async () => {
   const sites: Record<string, boolean> = {}
 
   await Promise.all(
-    allWebsitesCombined.map(async (w) => {
+    websites.map(async (w) => {
       const url = w.website
       const websiteStatus = await fetchIndiWtfStatus(appendUrlProtocol(url))
 
@@ -68,7 +56,7 @@ export const generateBlockList = async () => {
   )
 
   // // Alternatively, using for await of
-  // for await (const w of allWebsitesCombined) {
+  // for await (const w of websites) {
   //   const url = w.website
   //   const websiteStatus = await fetchIndiWtfStatus(appendUrlProtocol(url))
 
