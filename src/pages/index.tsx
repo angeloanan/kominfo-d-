@@ -72,6 +72,7 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
       <NextSeo />
       <div className='flex flex-col bg-brand-bg-light'>
         <SiteHeader />
+        <ManualSearchSection />
         <PageContent>
           <Container>
             <div className='space-y-8'>
@@ -98,8 +99,6 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
                 </section>
               ))}
             </div>
-
-            <ManualSearchSection />
 
             <footer className='mt-8 text-sm font-light'>
               <Link href='https://angeloanan.xyz' passHref>
