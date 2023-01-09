@@ -4,14 +4,15 @@ import { NextSeo } from 'next-seo'
 import * as React from 'react'
 
 import FullPSEData from '../../public/data.json'
-import { websiteSections } from '../_data/sections'
-import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from '../_data/websites'
+import { categories, CategoryInterface } from '../_data/categories'
+import { WebsiteInterface, websites } from '../_data/websites'
 import { Container } from '../components/Container'
 import { PageContent } from '../components/PageContent'
+import { SearchBox } from '../components/SearchBox'
 import { SiteHeader } from '../components/SiteHeader'
 import { WebsiteEntry } from '../components/WebsiteEntry'
 import { fetchTrustPositif } from '../functions/fetchTrustPositif'
-import { ManualSearchSection, WelcomeMessageSection } from '../modules/home'
+import { CategoryButtonSection, ManualSearchSection, WelcomeMessageSection } from '../modules/home'
 import type { PSEData } from '../types/PSEData'
 import { generateBlockList } from './api/fetchBlocked'
 
@@ -29,12 +30,21 @@ const isWebsiteRegistered = (websiteData: PSEData[], findUrl: string) => {
   )
 }
 
-const allWebsitesCombined = [
-  devStarterPack,
-  idnStarterPack,
-  linuxStarterPack,
-  websiteListUSA
-].flat()
+/**
+ * Checks if website has currently selected filter
+ * @param source
+ * @param sourceFilter
+ * @returns {boolean}
+ */
+const filterCategoryAll = (
+  source: WebsiteInterface,
+  sourceFilter: CategoryInterface[]
+): boolean => {
+  return sourceFilter.reduce(
+    (old: boolean, current: CategoryInterface) => old && source.categories.includes(current.id),
+    true
+  )
+}
 
 interface IndexPageProps {
   PSEData: Record<string, boolean>
@@ -47,7 +57,7 @@ export async function getStaticProps(
 ): Promise<GetStaticPropsResult<IndexPageProps>> {
   const sites: Record<string, boolean> = {}
 
-  allWebsitesCombined.forEach((w) => {
+  websites.forEach((w) => {
     sites[w.website] = isWebsiteRegistered(FullPSEData as PSEData[], w.website)
   })
 
@@ -67,6 +77,16 @@ export async function getStaticProps(
 }
 
 const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProps) => {
+  const [selectedCategories, setSelectedCategories] = React.useState([categories[0]])
+  const [searchString, setSearchString] = React.useState('')
+  const dedupedWebsites = new Array<string>()
+  const categoryButtonEventHandler = (cat: CategoryInterface[]) => {
+    setSelectedCategories([...cat])
+  }
+  const searchQueryEventHandler = (event: React.ChangeEvent) => {
+    setSearchString((event.target as HTMLInputElement).value)
+  }
+
   return (
     <>
       <NextSeo />
@@ -76,27 +96,60 @@ const IndexPage = ({ PSEData: data, blockData, trustPositifData }: IndexPageProp
           <Container>
             <div className='space-y-8'>
               <WelcomeMessageSection />
-              {websiteSections.map((item) => (
-                <section key={item.title}>
-                  <h2 className='text-2xl font-semibold'>{item.title}</h2>
-                  <div>{item.description}</div>
-                  <ul className='mt-4 grid max-w-screen-xl grid-flow-row grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-                    {item.sites.map((website) => (
-                      <WebsiteEntry
-                        website={website.icon}
-                        key={website.icon.title}
-                        trustPositif={
-                          trustPositifData?.[
-                            website.website.replace(/(https?:\/\/)/, '').replace(/www\./, '')
-                          ] ?? false
-                        }
-                        indiWtf={blockData?.[website.website] ?? false}
-                        registered={data[website.website]}
-                      />
-                    ))}
-                  </ul>
-                </section>
-              ))}
+              <SearchBox searchQuery={searchString} onSearchQuery={searchQueryEventHandler} />
+              <CategoryButtonSection
+                selectedCategories={selectedCategories}
+                onCategoryButtonClick={(cat: CategoryInterface[]) =>
+                  categoryButtonEventHandler(cat)
+                }
+              />
+              {selectedCategories.map((item, index) => {
+                // TODO: Find better alternative how to show websites
+                //       with multiple categories
+                const categoryHeader =
+                  index === 0 ? (
+                    <>
+                      <h2 className='text-2xl font-semibold'>{selectedCategories[0].name}</h2>
+                      <div>deskripsi</div>
+                    </>
+                  ) : (
+                    ''
+                  )
+                return (
+                  <section key={item.id}>
+                    {categoryHeader}
+                    <ul className='mt-4 grid max-w-screen-xl grid-flow-row grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                      {websites
+                        .filter(
+                          (w) =>
+                            filterCategoryAll(w, selectedCategories) &&
+                            dedupedWebsites.filter((dd) => dd === w.website).length === 0 &&
+                            (searchString.length > 0
+                              ? (w.icon.title ?? '')
+                                  .toLowerCase()
+                                  .indexOf(searchString.toLowerCase()) >= 0
+                              : true)
+                        )
+                        .map((website) => {
+                          dedupedWebsites.push(website.website)
+                          return (
+                            <WebsiteEntry
+                              website={website.icon}
+                              key={website.icon.title}
+                              trustPositif={
+                                trustPositifData?.[
+                                  website.website.replace(/(https?:\/\/)/, '').replace(/www\./, '')
+                                ] ?? false
+                              }
+                              indiWtf={blockData?.[website.website] ?? false}
+                              registered={data[website.website]}
+                            />
+                          )
+                        })}
+                    </ul>
+                  </section>
+                )
+              })}
             </div>
 
             <ManualSearchSection />

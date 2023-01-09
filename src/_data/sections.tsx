@@ -1,15 +1,13 @@
-import { devStarterPack, idnStarterPack, linuxStarterPack, websiteListUSA } from './websites'
-
 export const websiteSections = [
   {
     title: 'Indonesia Starterpack',
     description: <p>Situs atau service ini terpopuler dengan orang Indonesia</p>,
-    sites: idnStarterPack
+    filterCategory: 'idnStarterPack'
   },
   {
     title: 'Essential Developer Toolkit',
     description: <p>Service yang ✨ anak bangsa ✨ mungkin akan pakai saat membuat app</p>,
-    sites: devStarterPack
+    filterCategory: 'devStarterPack'
   },
   {
     title: 'Top websites USA',
@@ -31,11 +29,11 @@ export const websiteSections = [
         </p>
       </>
     ),
-    sites: websiteListUSA
+    filterCategory: 'topWebUSA'
   },
   {
     title: 'Linux Starterpack',
     description: <p>Service yang sering dipakai Linux user 🐧</p>,
-    sites: linuxStarterPack
+    filterCategory: 'linuxStarterPack'
   }
 ]
