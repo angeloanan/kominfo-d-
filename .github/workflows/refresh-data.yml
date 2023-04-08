@@ -16,6 +16,8 @@ jobs:
 
       - name: Scrape data
         run: yarn script:scrape
+        env:
+          NODE_TLS_REJECT_UNAUTHORIZED: 0
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
